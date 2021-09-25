@@ -1,33 +1,28 @@
-
-/**
- * Write a description of class Vehiculo here.
- *
- * @author (your name)
- * @version (a version number or a date)
- */
-public class Vehiculo
-{
-    // instance variables - replace the example below with your own
-    private int x;
-
-    /**
-     * Constructor for objects of class Vehiculo
-     */
-    public Vehiculo()
-    {
-        // initialise instance variables
-        x = 0;
+public class Vehiculo{
+    public int tamano=10;
+    public int posAnadir=0;
+    private int modelo;
+    private String marca;
+    private double valorComercial;
+    private String color;
+    Vehiculo[] vehiculos=new Vehiculo[tamano];
+    Vehiculo(){
     }
-
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
+    Vehiculo(int mo,String ma,double va){
+        Vehiculo vehiculo=new Vehiculo(mo,ma,va,"color");
     }
+    Vehiculo(int mo,String ma,double va,String co){
+        this.modelo=mo;
+        this.marca=ma;
+        this.valorComercial=va;
+        this.color=co;
+    }
+    void setModelo(int mo){this.modelo=mo;}
+    void setMarca(String ma){this.marca=ma;}
+    void setValor(double va){this.valorComercial=va;}
+    void setColor(String co){this.color=co;}
+    int getModelo(){return this.modelo;}
+    String getMarca(){return this.marca;}
+    double getValor(){return this.valorComercial;}
+    String getColor(){return this.color;}
 }

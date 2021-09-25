@@ -1,0 +1,9 @@
+* estilo
+** identacion:
+   4 espacios
+** al declarar variables:
+   no usar espacios entre el <identificador>=<valor>
+** al crear funciones y estructuras de control:
+   si se puede hacer en una sola linea agalo
+** terminologia
+   <valor para dar un ejemplo> se usan para decir que es una referencia y tiene que cambiar lo que este dentro a algo que ver con ese algo 
