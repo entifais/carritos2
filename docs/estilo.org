@@ -7,3 +7,9 @@
    si se puede hacer en una sola linea agalo
 ** terminologia
    <valor para dar un ejemplo> se usan para decir que es una referencia y tiene que cambiar lo que este dentro a algo que ver con ese algo 
+** corchetes {}
+*** forma simple
+    inicia:se ponen donde empiesa la funcion,clase o estructura y se hace salto de linea
+    termina:con un salto de linea indentado a principio de esta la funicion,clase o estructura 
+*** forma corta , si la funicion,clase o estructura es de solo una linea
+    se inicia y se cierra para contener el contenido de la funicion,clase o estructur , dentro de la mimsa linea

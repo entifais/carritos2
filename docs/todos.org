@@ -3,3 +3,10 @@
 ** preguntar
 *** es nesesario manipular la clase vehieculo como si ya fuera un objeto creado ?
     como se guardan los datos en la clase veiculo desde el constructor y no en los atriutos
+*** constructores vacios
+    por que ? ,seria mejor no crearlos o que beneficio hay
+** puntos pendientes
+*** Cada vez que cree una nueva instancia de vehículo, añádala al listado de vehículos de la clase Vehículo (utilice el atributo de clase posAnadir, para saber en qué posición añadirlo). Luego aumente en 1 el atributo postAnadir. Haga las modificaciones a los constructores o métodos anteriores, que considere pertinentes para que el sistema funcione tal cual lo requerido.
+**** añadirlo al array
+*** Implemente el atributo de clase “posAnadir” e inicialícelo con un valor de 0. Este atributo servirá para indicar, en que posición del arreglo “sensores” se deberá añadir las nuevas instancias de sensores que se van creando.
+**** añadirlo al array
