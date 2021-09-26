@@ -1,3 +1,5 @@
+import java.util.Collections;
+import java.util.ArrayList;
 public class Sensor{
     public int tamano=8;
     public int posAnadir=0;
@@ -23,6 +25,34 @@ public class Sensor{
     public String toString(){
         String infoSensor="tipo:"+this.tipo+"\nvalor"+String.valueOf(this.valor);
         return infoSensor;
+    }
+    public String toStringSensoresTemperatura(){
+        String infoSensores="";
+        for(int i=0;i<this.tamano;i++){
+            if("temperatura".equals(sensores[i].tipo)){
+                String infoSensor="tipo:"+sensores[i].tipo+"\nvalor:"+sensores[i].valor;
+                infoSensores=infoSensores+"\tSensor"+i+"\n"+infoSensor+"\n";
+            }
+        }
+        return infoSensores;
+    }
+    public ArrayList<Double> SensoresTemperaturaOrdenados(){
+        //int cantidadSensoresTemperatura=0;
+        //double[] valoresSucios=new double[this.tamano];
+        ArrayList<Double> valoresOrdenados = new ArrayList<Double>();
+        for(int i=0;i<this.tamano;i++){
+            if("temperatura".equals(sensores[i].tipo)){
+                //valoresSucios[i]=sensores[i].valor;
+                valoresOrdenados.add(sensores[i].valor);
+                //cantidadSensoresTemperatura=cantidadSensoresTemperatura+1;
+            }/*else{
+                valoresSucios[i]=0.0;
+            }*/
+            
+        }
+        Collections.sort(valoresOrdenados);        
+        //double[] valoresOrdenados=new double[cantidadSensoresTemperatura]
+        return valoresOrdenados;
     }
     public int cantidadSensores(){return this.posAnadir;}
     public void setTipo(String t){this.tipo=tipo;}
