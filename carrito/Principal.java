@@ -19,6 +19,19 @@ public class Principal{
                 menuAbierto=false;
                 break;
             }if(elecion.equals("1")||elecion.toLowerCase().equals("crear vehiculo")){
+                System.out.println("Ingrese el modelo de su Veiculo");
+                int modelo=input.nextInt();
+                System.out.println("Ingrese la marca de su Veiculo");
+                String marca=input.nextLine();
+                System.out.println("Ingrese el valor de su Veiculo");
+                System.out.println("(cof cof, el $)");
+                double valor= input.nextDouble();
+                System.out.println("Ingrese el color de su Veiculo");
+                String color=input.nextLine();
+                Vehiculo vehiculo = new Vehiculo(modelo,marca,valor,color);
+                if(vehiculo.posAnadir<vehiculo.tamano){
+                            vehiculo.vehiculos[vehiculo.posAnadir]=vehiculo;
+                }
                 //cantidad vehiculos < cantidad en el arreglo if(){}
             }if(elecion.equals("2")||elecion.toLowerCase().equals("mostrar informacion del vehiculos")||elecion.toLowerCase().equals("mostrar informacion")){}
         }

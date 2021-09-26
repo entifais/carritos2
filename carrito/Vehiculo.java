@@ -7,10 +7,9 @@ public class Vehiculo{
     private String color;
     public Vehiculo[] vehiculos=new Vehiculo[tamano];
     public Vehiculo(){
-        this.posAnadir=posAnadir+1;
     }
     public Vehiculo(int mo,String ma,double va){
-        Vehiculo vehiculo=new Vehiculo(mo,ma,va,"color");
+        Vehiculo vehiculo=new Vehiculo(mo,ma,va,"verde");
         this.posAnadir=posAnadir+1;
     }
     public Vehiculo(int mo,String ma,double va,String co){
