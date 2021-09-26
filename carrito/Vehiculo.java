@@ -31,6 +31,26 @@ public class Vehiculo{
         }
         return infoVehiculos;
     }
+    public String toStringVeiculosVerdes(){
+        String infoVehiculos="";
+        for(int i=0;i<this.tamano;i++){
+            if("verde".equals(vehiculos[i].color)){
+                String infoVehiculo="modelo:"+vehiculos[i].modelo+"\nmarca:"+vehiculos[i].marca+"\nvalor Comercial:"+String.valueOf(vehiculos[i].valorComercial)+"\ncolor:"+vehiculos[i].color;
+                infoVehiculos=infoVehiculos+"\tVeiculo"+i+"\n"+infoVehiculo+"\n";
+            }
+        }
+        return infoVehiculos;
+    }
+    public String filtrarModelo(int inicialInicial,int añoFinal){
+        String infoVehiculos="";
+        for(int i=0;i<this.tamano;i++){
+            if(inicialInicial<=vehiculos[i].modelo&&añoFinal>=vehiculos[i].modelo){
+                String infoVehiculo="modelo:"+vehiculos[i].modelo+"\nmarca:"+vehiculos[i].marca+"\nvalor Comercial:"+String.valueOf(vehiculos[i].valorComercial)+"\ncolor:"+vehiculos[i].color;
+                infoVehiculos=infoVehiculos+"\tVeiculo"+i+"\n"+infoVehiculo+"\n";
+            }
+        }
+        return infoVehiculos;
+    }
     public int cantidadVehiculos(){return this.posAnadir;}
     public void setModelo(int mo){this.modelo=mo;}
     public void setMarca(String ma){this.marca=ma;}
