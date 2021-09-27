@@ -1,11 +1,12 @@
 import java.util.Scanner;
 public class Principal{
     public static void main(String[] args){
+        new Principal().mostrarMenu();
     }
     public void mostrarMenu(){
         Scanner input = new Scanner(System.in);
         String banner="                     _ _              ____\n"+"  ___ __ _ _ __ _ __(_) |_ ___   ____//_]|________\n"+" / __/ _` | '__| '__| | __/ _ \\ (o _ |  -|   _  o|\n"+"| (_| (_| | |  | |  | | || (_) |`(_)-------(_)--'\n"+" \\___\\__,_|_|  |_|  |_|\\__\\___/ ";
-        String mensajeMenu="Crear vehiculo[1]\nMostrar informacion del vehiculos[2]\nMostrar canitidad de vehiculos[3]\nMostrar informacion de vehiculos de color verde[4]\nMostrar informacion del vehiculos modelos 2000 a 2021[5]\nMostrar informacion de vehiculos apartir de un rango de modelos[5xy]\ncCrear sensor[6]\nmostrar informacion de todos los sensores[7]\nmostrar cantidad de sensores[8]\nmostrar informacion de sensores de temperatura[9]\nCrear sensor AQA[10]\nCrear sensor AQAv80[11]\nCrear sensor CanAirIO[12]\nSalir[0]";
+        String mensajeMenu="Crear vehiculo[1]\nMostrar informacion del vehiculos[2]\nMostrar canitidad de vehiculos[3]\nMostrar informacion de vehiculos de color verde[4]\nMostrar informacion del vehiculos modelos 2000 a 2021[5]\nMostrar informacion de vehiculos apartir de un rango de modelos[5xy]\ncCrear sensor[6]\nmostrar informacion de todos los sensores[7]\nmostrar cantidad de sensores[8]\nmostrar informacion de sensores de temperatura[9]\nCrear sensor AQA[10]\nCrear sensor AQAv80[11]\nCrear sensor CanAirIO[12]\nMostrar informacion de sensores de temperatura de menor valor a mayor[666]\nMostrar valores ordenados sus sensores de temperatura[667]\nSalir[0]";
         String mensajeDespedida="bye\n\tbye";
         String elecion="";
         boolean menuAbierto=true; 
@@ -121,12 +122,21 @@ public class Principal{
                     System.out.println("para añadir nuevos sensores intente cambiar el tamaño del arreglo y volver a ejecutar el codigo");
                 }
             }
-            if(elecion.equals("666")||elecion.toLowerCase().equals("mostrar informacion del vehiculos")||elecion.toLowerCase().equals("mostrar informacion")){
-                String infoSesnores=sensor.valoresOrdenados();
+            if(elecion.equals("666")||elecion.toLowerCase().equals("mostrar informacion de sensores de temperatura de menor valor a mayor valor")||elecion.toLowerCase().equals("que peresa escribir todo eso")){
+                double[] valores=sensor.SensoresTemperaturaOrdenados666();
                 System.out.println("\tInformacion de sus sensores de temperatura\n");
                 System.out.println(infoSesnores);
                 
             }
+            if(elecion.equals("667")||elecion.toLowerCase().equals("mostrar valores ordenados sus sensores de temperatura")||elecion.toLowerCase().equals("valores sensores de temperatura")){
+                double[] valores=sensor.SensoresTemperaturaOrdenados667();
+                String infoSesnores="";
+                for(int i=0;i<valores.length;i++){
+                    infoSesnores=infoSesnores+valores[i];
+                }
+                System.out.println("\tInformacion de sus sensores de temperatura\n");
+                System.out.println(infoSesnores);
+                
             }
         }
     }

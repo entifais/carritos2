@@ -36,23 +36,44 @@ public class Sensor{
         }
         return infoSensores;
     }
-    public ArrayList<Double> SensoresTemperaturaOrdenados(){
+        public double[] SensoresTemperaturaOrdenados666(){
         //int cantidadSensoresTemperatura=0;
+        //tiene que retornar los sesnores(obejto) o los valores
         //double[] valoresSucios=new double[this.tamano];
-        ArrayList<Double> valoresOrdenados = new ArrayList<Double>();
+        ArrayList<Double> valoresOrdenadosDinamicos = new ArrayList<Double>();
         for(int i=0;i<this.tamano;i++){
             if("temperatura".equals(sensores[i].tipo)){
                 //valoresSucios[i]=sensores[i].valor;
-                valoresOrdenados.add(sensores[i].valor);
+                valoresOrdenadosDinamicos.add(sensores[i].valor);
                 //cantidadSensoresTemperatura=cantidadSensoresTemperatura+1;
             }/*else{
                 valoresSucios[i]=0.0;
             }*/
             
         }
-        Collections.sort(valoresOrdenados);        
+        Collections.sort(valoresOrdenadosDinamicos);        
         //double[] valoresOrdenados=new double[cantidadSensoresTemperatura]
-        return valoresOrdenados;
+        double[] valoresOrdenadosEstaticos=new double[valoresOrdenadosDinamicos.size()];
+        return valoresOrdenadosEstaticos;
+    }
+    public double[] SensoresTemperaturaOrdenados667(){
+        //int cantidadSensoresTemperatura=0;
+        //double[] valoresSucios=new double[this.tamano];
+        ArrayList<Double> valoresOrdenadosDinamicos = new ArrayList<Double>();
+        for(int i=0;i<this.tamano;i++){
+            if("temperatura".equals(sensores[i].tipo)){
+                //valoresSucios[i]=sensores[i].valor;
+                valoresOrdenadosDinamicos.add(sensores[i].valor);
+                //cantidadSensoresTemperatura=cantidadSensoresTemperatura+1;
+            }/*else{
+                valoresSucios[i]=0.0;
+            }*/
+            
+        }
+        Collections.sort(valoresOrdenadosDinamicos);        
+        //double[] valoresOrdenados=new double[cantidadSensoresTemperatura]
+        double[] valoresOrdenadosEstaticos=new double[valoresOrdenadosDinamicos.size()];
+        return valoresOrdenadosEstaticos;
     }
     public int cantidadSensores(){return this.posAnadir;}
     public void setTipo(String t){this.tipo=tipo;}
