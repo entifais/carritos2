@@ -12,6 +12,9 @@
 **** añadirlo al array
 *** DONE Implemente el atributo de clase “posAnadir” e inicialícelo con un valor de 0. Este atributo servirá para indicar, en que posición del arreglo “sensores” se deberá añadir las nuevas instancias de sensores que se van creando.
 **** añadirlo al array
+*** completar punto 666
+    Si se ingresa el número 666, muestre por pantalla los sensores tipo temperatura ordenados por valor. Para esto deberá crear un nuevo método, que retorne un nuevo arreglo con los sensores tipo temperatura ordenados por valor (el menor valor al principio). Y luego dentro de la ejecución del caso 666, se invoque ese método, se recoja el nuevo arreglo recibido, y se muestre la información de ese arreglo (cree los métodos que considere pertinentes y/o haga las modificaciones pertinentes // verifique bien a que clases le asigna esas responsabilidades).
+*** debuguiar
 *** readme
 **** foticos
 **** instrucciones de uso

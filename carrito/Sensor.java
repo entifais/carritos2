@@ -57,21 +57,13 @@ public class Sensor{
         return valoresOrdenadosEstaticos;
     }
     public double[] SensoresTemperaturaOrdenados667(){
-        //int cantidadSensoresTemperatura=0;
-        //double[] valoresSucios=new double[this.tamano];
         ArrayList<Double> valoresOrdenadosDinamicos = new ArrayList<Double>();
         for(int i=0;i<this.tamano;i++){
             if("temperatura".equals(sensores[i].tipo)){
-                //valoresSucios[i]=sensores[i].valor;
                 valoresOrdenadosDinamicos.add(sensores[i].valor);
-                //cantidadSensoresTemperatura=cantidadSensoresTemperatura+1;
-            }/*else{
-                valoresSucios[i]=0.0;
-            }*/
-            
+            }        
         }
         Collections.sort(valoresOrdenadosDinamicos);        
-        //double[] valoresOrdenados=new double[cantidadSensoresTemperatura]
         double[] valoresOrdenadosEstaticos=new double[valoresOrdenadosDinamicos.size()];
         return valoresOrdenadosEstaticos;
     }
