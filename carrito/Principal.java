@@ -123,9 +123,11 @@ public class Principal{
                 }
             }
             if(elecion.equals("666")||elecion.toLowerCase().equals("mostrar informacion de sensores de temperatura de menor valor a mayor valor")||elecion.toLowerCase().equals("que peresa escribir todo eso")){
-                double[] valores=sensor.SensoresTemperaturaOrdenados666();
+                Sensor[] sensoresOrdenados=new sensor.SensoresTemperaturaOrdetnados666();
                 System.out.println("\tInformacion de sus sensores de temperatura\n");
-                
+                for(int i=0;i<sensoresOrdenados.length;i++){
+                    System.out.println();
+                }                
             }
             if(elecion.equals("667")||elecion.toLowerCase().equals("mostrar valores ordenados sus sensores de temperatura")||elecion.toLowerCase().equals("valores sensores de temperatura")){
                 double[] valores=sensor.SensoresTemperaturaOrdenados667();

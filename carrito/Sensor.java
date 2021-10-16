@@ -7,7 +7,6 @@ public class Sensor{
     private double valor;
     public Sensor[] sensores=new Sensor[tamano];
     public Sensor(){
-        this.posAnadir=posAnadir+1;
     }
     public Sensor(String t,double v){
         this.tipo=t;
@@ -36,9 +35,20 @@ public class Sensor{
         }
         return infoSensores;
     }
-        public Sensor SensoresTemperaturaOrdenados666(){
+    public Sensor[] SensoresTemperaturaOrdetnados666(){
+        for(int i=0;i<this.tamano;i++){
+            if("temperatura".equals(sensores[i].tipo)){
+                for(int ii=0;ii<this.tamano;ii++){
+                    if(sensores[ii].valor>sensores[ii+1].valor){
+                        Sensor tmp = sensores[ii];
+                        sensores[ii] = sensores[ii+1];
+                        sensores[ii+1] = tmp;
+                    }
+                }
+            }
+        }
         //esperando respuesta si se retornan los objetos o los valores de temperatura
-        return Sensor();
+        return sensores;
     }
     public double[] SensoresTemperaturaOrdenados667(){
         ArrayList<Double> valoresOrdenadosDinamicos = new ArrayList<Double>();
