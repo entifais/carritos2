@@ -1,0 +1,12 @@
+* respuestas a preguntas frecuentes
+** P:
+  me da el error
+#+BEGIN_SRC java
+java.lang.NullPointerException
+	at Vehiculo.toStringVeiculos(Vehiculo.java:29)
+	at Principal.mostrarMenu(Principal.java:43)
+	at Principal.main(Principal.java:4)
+#+END_SRC
+despues de elegir la opcion 2
+** R:
+   recuerda que primero debes crear un veiculo antes de pedir su informacion

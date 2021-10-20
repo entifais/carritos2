@@ -6,8 +6,8 @@ public class Principal{
     public void mostrarMenu(){
         Scanner input = new Scanner(System.in);
         String banner="                     _ _              ____\n"+"  ___ __ _ _ __ _ __(_) |_ ___   ____//_]|________\n"+" / __/ _` | '__| '__| | __/ _ \\ (o _ |  -|   _  o|\n"+"| (_| (_| | |  | |  | | || (_) |`(_)-------(_)--'\n"+" \\___\\__,_|_|  |_|  |_|\\__\\___/ ";
-        String mensajeMenu="Crear vehiculo[1]\nMostrar informacion del vehiculos[2]\nMostrar canitidad de vehiculos[3]\nMostrar informacion de vehiculos de color verde[4]\nMostrar informacion del vehiculos modelos 2000 a 2021[5]\nMostrar informacion de vehiculos apartir de un rango de modelos[5xy]\ncCrear sensor[6]\nmostrar informacion de todos los sensores[7]\nmostrar cantidad de sensores[8]\nmostrar informacion de sensores de temperatura[9]\nCrear sensor AQA[10]\nCrear sensor AQAv80[11]\nCrear sensor CanAirIO[12]\nMostrar informacion de sensores de temperatura de menor valor a mayor[666]\nMostrar valores ordenados sus sensores de temperatura[667]\nSalir[0]";
-        String mensajeDespedida="bye\n\tbye";
+        String mensajeMenu="Crear vehiculo[1]\nMostrar informacion del vehiculos[2]\nMostrar canitidad de vehiculos[3]\nMostrar informacion de vehiculos de color verde[4]\nMostrar informacion del vehiculos modelos 2000 a 2021[5]\nMostrar informacion de vehiculos apartir de un rango de modelos[5xy]\nCrear sensor[6]\nmostrar informacion de todos los sensores[7]\nmostrar cantidad de sensores[8]\nmostrar informacion de sensores de temperatura[9]\nCrear sensor AQA[10]\nCrear sensor AQAv80[11]\nCrear sensor CanAirIO[12]\nMostrar informacion de sensores de temperatura de menor valor a mayor[666]\nMostrar valores ordenados sus sensores de temperatura[667]\nSalir[0]";
+        String mensajeDespedida="\nbye\n\tbye";
         String elecion="";
         boolean menuAbierto=true; 
         Vehiculo vehiculo = new Vehiculo();
@@ -33,7 +33,7 @@ public class Principal{
                     System.out.println("Ingrese el color de su veiculo");
                     String color=input.nextLine();
                     Vehiculo nuevoVehiculo=new Vehiculo(modelo,marca,valor,color);
-                    vehiculo.vehiculos[vehiculo.posAnadir-1]=nuevoVehiculo;
+                    vehiculo.vehiculos[vehiculo.posAnadir]=nuevoVehiculo;
                     System.out.println("Su vehiculo fue creado de forma correcta");
                 }else{
                     System.out.println("[Error] base de datos de vehiculos esta llena");
@@ -123,7 +123,7 @@ public class Principal{
                 }
             }
             if(elecion.equals("666")||elecion.toLowerCase().equals("mostrar informacion de sensores de temperatura de menor valor a mayor valor")||elecion.toLowerCase().equals("que peresa escribir todo eso")){
-                Sensor[] sensoresOrdenados=new sensor.SensoresTemperaturaOrdetnados666();
+                Sensor[] sensoresOrdenados=sensor.SensoresTemperaturaOrdetnados666();
                 System.out.println("\tInformacion de sus sensores de temperatura\n");
                 for(int i=0;i<sensoresOrdenados.length;i++){
                     System.out.println();
