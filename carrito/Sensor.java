@@ -15,8 +15,10 @@ public class Sensor{
     }
     public String toStringSensores(){
         String infoSensores="";
-        for(int i=0;i<this.tamano;i++){
-            String infoSensor="tipo:"+sensores[i].tipo+"\nvalor:"+String.valueOf(sensores[i].valor);
+        String infoSensor="";
+        for(int i=0;i<this.posAnadir;i++){
+            //String infoSensor="tipo:"+sensores[i].tipo+"\nvalor:"+String.valueOf(sensores[i].valor);
+            infoSensor=this.sensores[i].toString();
             infoSensores=infoSensores+"\tSensor"+i+"\n"+infoSensor+"\n";
         }
         return infoSensores;
@@ -27,7 +29,7 @@ public class Sensor{
     }
     public String toStringSensoresTemperatura(){
         String infoSensores="";
-        for(int i=0;i<this.tamano;i++){
+        for(int i=0;i<this.posAnadir;i++){
             if("temperatura".equals(sensores[i].tipo)){
                 String infoSensor="tipo:"+sensores[i].tipo+"\nvalor:"+sensores[i].valor;
                 infoSensores=infoSensores+"\tSensor"+i+"\n"+infoSensor+"\n";
@@ -36,13 +38,22 @@ public class Sensor{
         return infoSensores;
     }
     public Sensor[] SensoresTemperaturaOrdetnados666(){
-        for(int i=0;i<this.tamano;i++){
+        int cantidadSensoresTemperatura=0;
+        for(int i=0;i<this.posAnadir;i++){
+            if("temperatura".equals(this.sensores[i].tipo)){
+                cantidadSensoresTemperatura=cantidadSensoresTemperatura+1;
+            }
+            if(cantidadSensoresTemperatura>1){
+                break;
+            }
+        }//se hace este for y los if para evitar ordenar un solo objeto , esto produciria un error
+        for(int i=0;i<this.posAnadir-1;i++){
             if("temperatura".equals(sensores[i].tipo)){
-                for(int ii=0;ii<this.tamano;ii++){
-                    if(sensores[ii].valor>sensores[ii+1].valor){
-                        Sensor tmp = sensores[ii];
-                        sensores[ii] = sensores[ii+1];
-                        sensores[ii+1] = tmp;
+                for(int ii=0;ii<this.posAnadir-i-1;ii++){
+                    if(this.sensores[ii].valor>sensores[ii+1].valor){
+                        Sensor tmp = this.sensores[ii];
+                        this.sensores[ii] = this.sensores[ii+1];
+                        this.sensores[ii+1] = tmp;
                     }
                 }
             }
@@ -52,8 +63,8 @@ public class Sensor{
     }
     public double[] SensoresTemperaturaOrdenados667(){
         ArrayList<Double> valoresOrdenadosDinamicos = new ArrayList<Double>();
-        for(int i=0;i<this.tamano;i++){
-            if("temperatura".equals(sensores[i].tipo)){
+        for(int i=0;i<this.posAnadir;i++){
+            if("temperatura".equals(this.sensores[i].tipo)){
                 valoresOrdenadosDinamicos.add(sensores[i].valor);
             }        
         }

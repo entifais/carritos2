@@ -21,7 +21,7 @@ public class Principal{
                 System.out.println(mensajeDespedida);
                 menuAbierto=false;
                 break;
-            }if(elecion.equals("1")||elecion.toLowerCase().equals("crear vehiculo")){
+            }else if(elecion.equals("1")||elecion.toLowerCase().equals("crear vehiculo")){
                 if(vehiculo.posAnadir<vehiculo.tamano){
                     System.out.println("Ingrese el modelo de su veiculo");
                     int modelo=input.nextInt();
@@ -41,97 +41,92 @@ public class Principal{
                     System.out.println("[Error] base de datos de vehiculos esta llena");
                     System.out.println("para añadir nuevos veihiculos intente cambiar el tamaño del arreglo y volver a ejecutar el codigo");
                 }
-            }if(elecion.equals("2")||elecion.toLowerCase().equals("mostrar informacion del vehiculos")||elecion.toLowerCase().equals("mostrar informacion")||elecion.toLowerCase().equals("informacion")){
+            }else if(elecion.equals("2")||elecion.toLowerCase().equals("mostrar informacion del vehiculos")||elecion.toLowerCase().equals("mostrar informacion")||elecion.toLowerCase().equals("informacion")){
                 String infoVehiculos=vehiculo.toStringVeiculos();
                 System.out.println("\tInformacion de sus vehiculos\n");
                 System.out.println(infoVehiculos);
-            }
-            if(elecion.equals("3")||elecion.toLowerCase().equals("Mostrar canitidad de vehiculos")||elecion.toLowerCase().equals("canitidad de vehiculos")||elecion.toLowerCase().equals("canitidad")){
+            }else if(elecion.equals("3")||elecion.toLowerCase().equals("Mostrar canitidad de vehiculos")||elecion.toLowerCase().equals("canitidad de vehiculos")||elecion.toLowerCase().equals("canitidad")){
                 int cantidad=vehiculo.cantidadVehiculos();
                 System.out.println("Cantidad de vehiculos almacenados es:"+cantidad);
-            }
-            if(elecion.equals("4")||elecion.toLowerCase().equals("mostrar informacion del vehiculos verdes")||elecion.toLowerCase().equals("mostrar informacion verde")||elecion.toLowerCase().equals("verdes")){
+            }else if(elecion.equals("4")||elecion.toLowerCase().equals("mostrar informacion del vehiculos verdes")||elecion.toLowerCase().equals("mostrar informacion verde")||elecion.toLowerCase().equals("verdes")){
                 String infoVehiculos=vehiculo.toStringVeiculosVerdes();
                 System.out.println("Informacion de sus vehiculos color verde:\n"+infoVehiculos);
-            }
-            if(elecion.equals("5")||elecion.toLowerCase().equals("mostrar informacion del vehiculos de modelo 2000 a 2021")||elecion.toLowerCase().equals("modelo")||elecion.toLowerCase().equals("modelo filtrado")){
+            }else if(elecion.equals("5")||elecion.toLowerCase().equals("mostrar informacion del vehiculos de modelo 2000 a 2021")||elecion.toLowerCase().equals("modelo")||elecion.toLowerCase().equals("modelo filtrado")){
                 String infoVehiculos=vehiculo.filtrarModelo(2000,2021);
                 System.out.println("Informacion de sus vehiculos de modelo de 2000 a 2021 son:\n"+infoVehiculos);
-            }
-            if(elecion.equals("5xy")||elecion.toLowerCase().equals("mostrar informacion del vehiculos de modelo x a y")||elecion.toLowerCase().equals("modeloxy")||elecion.toLowerCase().equals("modelo filtrado personalisado")){
+            }else if(elecion.equals("5xy")||elecion.toLowerCase().equals("mostrar informacion del vehiculos de modelo x a y")||elecion.toLowerCase().equals("modeloxy")||elecion.toLowerCase().equals("modelo filtrado personalisado")){
                 System.out.println("Ingrese el modelo inicial para filtrar su busqueda");
                 int modeloInicial=input.nextInt();
                 System.out.println("Ingrese el modelo final para filtrar su busqueda");
                 int modeloFinal=input.nextInt();
                 String infoVehiculos=vehiculo.filtrarModelo(modeloInicial,modeloFinal);
                 System.out.println("Informacion de sus vehiculos de modelo de 2000 a 2021 son:\n"+infoVehiculos);
-            }
-            if(elecion.equals("6")||elecion.toLowerCase().equals("crear sensor")){
+            }else if(elecion.equals("6")||elecion.toLowerCase().equals("crear sensor")){
                 if(sensor.posAnadir<sensor.tamano){
                     System.out.println("Ingrese el tipo de su Sensor");
                     String tipo=input.nextLine();
                     System.out.println("Ingrese el valor de su Sensor");
-                    System.out.println("(cof cof, el $)");
                     double valor=input.nextDouble();
                     Sensor nuevoSensor=new Sensor(tipo,valor);
-                    sensor.sensores[sensor.posAnadir-1]=nuevoSensor;
+                    sensor.sensores[sensor.posAnadir]=nuevoSensor;
+                    sensor.posAnadir=sensor.posAnadir+1;
                 }else{
                     System.out.println("[Error] base de datos de sensores esta llena");
                     System.out.println("para añadir nuevos sensores intente cambiar el tamaño del arreglo y volver a ejecutar el codigo");
                 }
-            }
-            if(elecion.equals("7")||elecion.toLowerCase().equals("mostrar informacion de todos los sensores")||elecion.toLowerCase().equals("todos los sensores")){
+            }else if(elecion.equals("7")||elecion.toLowerCase().equals("mostrar informacion de todos los sensores")||elecion.toLowerCase().equals("todos los sensores")){
                 String infoSesnores=sensor.toStringSensores();
                 System.out.println("\tInformacion de sus sensores\n");
                 System.out.println(infoSesnores);
-            }
-            if(elecion.equals("8")||elecion.toLowerCase().equals("mostrar cantidad de sensores")||elecion.toLowerCase().equals("cantidad sensores")){
-            int cantidad=sensor.cantidadSensores();
+
+            }else if(elecion.equals("8")||elecion.toLowerCase().equals("mostrar cantidad de sensores")||elecion.toLowerCase().equals("cantidad sensores")){
+                int cantidad=sensor.cantidadSensores();
                 System.out.println("Cantidad de sensores almacenados es:"+cantidad);
-            }
-            if(elecion.equals("9")||elecion.toLowerCase().equals("mostrar informacion de sensores de temperatura")||elecion.toLowerCase().equals("mostrar informacion senores temperatura")){
+            }else if(elecion.equals("9")||elecion.toLowerCase().equals("mostrar informacion de sensores de temperatura")||elecion.toLowerCase().equals("mostrar informacion senores temperatura")){
                 String infoSesnores=sensor.toStringSensoresTemperatura();
                 System.out.println("\tInformacion de sus sensores de temperatura\n");
                 System.out.println(infoSesnores);
-            }
-            if(elecion.equals("10")||elecion.toLowerCase().equals("crear sensor aqa")||elecion.toLowerCase().equals("aqa")){
+            }else if(elecion.equals("10")||elecion.toLowerCase().equals("crear sensor aqa")||elecion.toLowerCase().equals("aqa")){
                 if(sensor.posAnadir<sensor.tamano){
                     System.out.println("Sensor AQA de Un/loquer:https://github.com/unloquer/AQA");
                     Sensor nuevoSensor=new Sensor("pm2.5",300.0);
-                    sensor.sensores[sensor.posAnadir-1]=nuevoSensor;
+                    sensor.sensores[sensor.posAnadir]=nuevoSensor;
+                    sensor.posAnadir=sensor.posAnadir+1;
                 }else{
                     System.out.println("[Error] base de datos de sensores esta llena");
                     System.out.println("para añadir nuevos sensores intente cambiar el tamaño del arreglo y volver a ejecutar el codigo");
                 }
-            }
-            if(elecion.equals("11")||elecion.toLowerCase().equals("crear sensor aqav80")||elecion.toLowerCase().equals("aqav80")){
-            if(sensor.posAnadir<sensor.tamano){
+            }else if(elecion.equals("11")||elecion.toLowerCase().equals("crear sensor aqav80")||elecion.toLowerCase().equals("aqav80")){
+                if(sensor.posAnadir<sensor.tamano){
                     System.out.println("Sensor AQAv80 de Un/loquer:https://github.com/unloquer/aqav80");
                     Sensor nuevoSensor=new Sensor("pm2.5",180.0);
-                    sensor.sensores[sensor.posAnadir-1]=nuevoSensor;
+                    sensor.sensores[sensor.posAnadir]=nuevoSensor;
+                    sensor.posAnadir=sensor.posAnadir+1;
                 }else{
                     System.out.println("[Error] base de datos de sensores esta llena");
                     System.out.println("para añadir nuevos sensores intente cambiar el tamaño del arreglo y volver a ejecutar el codigo");
                 }
-                }
-            if(elecion.equals("12")||elecion.toLowerCase().equals("crear sensor canairio")||elecion.toLowerCase().equals("canairio")){
+            }else if(elecion.equals("12")||elecion.toLowerCase().equals("crear sensor canairio")||elecion.toLowerCase().equals("canairio")){
                 if(sensor.posAnadir<sensor.tamano){
                     System.out.println("Sensor CanAirIO:https://canair.io/");
-                    Sensor nuevoSensor=new Sensor("pm2.5",220.0);//ni idea a cuento estan
-                    sensor.sensores[sensor.posAnadir-1]=nuevoSensor;
+                    Sensor nuevoSensor=new Sensor("pm2.5",220.0);//ni idea a cuento estan, pero depronto se puede ganar uno como en la respiraton o si no puede tener lo hagaselo
+                    sensor.sensores[sensor.posAnadir]=nuevoSensor;
+                    sensor.posAnadir=sensor.posAnadir+1;
                 }else{
                     System.out.println("[Error] base de datos de sensores esta llena");
                     System.out.println("para añadir nuevos sensores intente cambiar el tamaño del arreglo y volver a ejecutar el codigo");
                 }
             }
-            if(elecion.equals("666")||elecion.toLowerCase().equals("mostrar informacion de sensores de temperatura de menor valor a mayor valor")||elecion.toLowerCase().equals("que peresa escribir todo eso")){
+            else if(elecion.equals("666")||elecion.toLowerCase().equals("mostrar informacion de sensores de temperatura de menor valor a mayor valor")||elecion.toLowerCase().equals("que peresa escribir todo eso")){
                 Sensor[] sensoresOrdenados=sensor.SensoresTemperaturaOrdetnados666();
                 System.out.println("\tInformacion de sus sensores de temperatura\n");
-                for(int i=0;i<sensoresOrdenados.length;i++){
-                    System.out.println();
-                }                
-            }
-            if(elecion.equals("667")||elecion.toLowerCase().equals("mostrar valores ordenados sus sensores de temperatura")||elecion.toLowerCase().equals("valores sensores de temperatura")){
+                String infoSesnores=sensor.toStringSensores();
+                System.out.println(infoSesnores);
+                
+            }else if(elecion.equals("667")||elecion.toLowerCase().equals("mostrar valores ordenados sus sensores de temperatura")||elecion.toLowerCase().equals("valores sensores de temperatura")){
+                System.out.println("\tno use esta opcion , no sea masoquista\n");
+                boolean masoquista=false;
+                if(false){
                 double[] valores=sensor.SensoresTemperaturaOrdenados667();
                 String infoSesnores="";
                 for(int i=0;i<valores.length;i++){
@@ -139,8 +134,8 @@ public class Principal{
                 }
                 System.out.println("\tInformacion de sus sensores de temperatura\n");
                 System.out.println(infoSesnores);
-                
-            }
+                }else{masoquista=true;}
+            }else{System.out.println(elecion+" no es una opcion valida\n");}
             System.out.println("presione enter para continuar");
             input.nextLine();
         }
