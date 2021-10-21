@@ -10,14 +10,12 @@ public class Vehiculo{
     }
     public Vehiculo(int mo,String ma,double va){
         Vehiculo vehiculo=new Vehiculo(mo,ma,va,"verde");
-        this.posAnadir=posAnadir+1;
     }
     public Vehiculo(int mo,String ma,double va,String co){
         this.modelo=mo;
         this.marca=ma;
         this.valorComercial=va;
         this.color=co;
-        this.posAnadir=posAnadir+1;
     }
     public String toString(){
         String infoVehiculo="modelo:"+this.modelo+"\nmarca:"+this.marca+"\nvalor Comercial:"+String.valueOf(this.valorComercial)+"\ncolor:"+this.color;
@@ -25,15 +23,17 @@ public class Vehiculo{
     }
     public String toStringVeiculos(){
         String infoVehiculos="";
-        for(int i=0;i<this.tamano;i++){
-            String infoVehiculo="modelo:"+vehiculos[i].modelo+"\nmarca:"+vehiculos[i].marca+"\nvalor Comercial:"+String.valueOf(vehiculos[i].valorComercial)+"\ncolor:"+vehiculos[i].color;
-            infoVehiculos=infoVehiculos+"\tVeiculo"+i+"\n"+infoVehiculo+"\n";
+        String infoVehiculo="";
+        for(int i=0;i<this.posAnadir;i++){
+            //String infoVehiculo="modelo:"+this.vehiculos[i].modelo+"\nmarca:"+this.vehiculos[i].marca+"\nvalor Comercial:"+String.valueOf(this.vehiculos[i].valorComercial)+"\ncolor:"+this.vehiculos[i].color;
+            infoVehiculo=this.vehiculos[i].toString();
+            infoVehiculos=infoVehiculos+"\tVehiculo"+i+"\n"+infoVehiculo+"\n";
         }
         return infoVehiculos;
     }
     public String toStringVeiculosVerdes(){
         String infoVehiculos="";
-        for(int i=0;i<this.tamano;i++){
+        for(int i=0;i<this.posAnadir;i++){
             if("verde".equals(vehiculos[i].color)){
                 String infoVehiculo="modelo:"+vehiculos[i].modelo+"\nmarca:"+vehiculos[i].marca+"\nvalor Comercial:"+String.valueOf(vehiculos[i].valorComercial)+"\ncolor:"+vehiculos[i].color;
                 infoVehiculos=infoVehiculos+"\tVeiculo"+i+"\n"+infoVehiculo+"\n";
@@ -43,7 +43,7 @@ public class Vehiculo{
     }
     public String filtrarModelo(int inicialInicial,int añoFinal){
         String infoVehiculos="";
-        for(int i=0;i<this.tamano;i++){
+        for(int i=0;i<this.posAnadir;i++){
             if(inicialInicial<=vehiculos[i].modelo&&añoFinal>=vehiculos[i].modelo){
                 String infoVehiculo="modelo:"+vehiculos[i].modelo+"\nmarca:"+vehiculos[i].marca+"\nvalor Comercial:"+String.valueOf(vehiculos[i].valorComercial)+"\ncolor:"+vehiculos[i].color;
                 infoVehiculos=infoVehiculos+"\tVeiculo"+i+"\n"+infoVehiculo+"\n";

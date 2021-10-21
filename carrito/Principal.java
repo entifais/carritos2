@@ -5,13 +5,13 @@ public class Principal{
     }
     public void mostrarMenu(){
         Scanner input = new Scanner(System.in);
-        String banner="                     _ _              ____\n"+"  ___ __ _ _ __ _ __(_) |_ ___   ____//_]|________\n"+" / __/ _` | '__| '__| | __/ _ \\ (o _ |  -|   _  o|\n"+"| (_| (_| | |  | |  | | || (_) |`(_)-------(_)--'\n"+" \\___\\__,_|_|  |_|  |_|\\__\\___/ ";
+        String banner="                     _ _              ____\n"+"  ___ __ _ _ __ _ __(_) |_ ___   ____//_]|________\n"+" / __/ _` | '__| '__| | __/ _ \\ (o _ |  -|   _  o|\n"+"| (_| (_| | |  | |  | | || (_) |`(_)-------(_)--'\n"+" \\___\\__,_|_|  |_|  |_|\\__\\___/ \n\nhecho por mi \n(no pongo mi nombre por que esta en una cuenta de github que inspira lastmia\nle recomiendo esta https://github.com/jero98772)\n";
         String mensajeMenu="Crear vehiculo[1]\nMostrar informacion del vehiculos[2]\nMostrar canitidad de vehiculos[3]\nMostrar informacion de vehiculos de color verde[4]\nMostrar informacion del vehiculos modelos 2000 a 2021[5]\nMostrar informacion de vehiculos apartir de un rango de modelos[5xy]\nCrear sensor[6]\nmostrar informacion de todos los sensores[7]\nmostrar cantidad de sensores[8]\nmostrar informacion de sensores de temperatura[9]\nCrear sensor AQA[10]\nCrear sensor AQAv80[11]\nCrear sensor CanAirIO[12]\nMostrar informacion de sensores de temperatura de menor valor a mayor[666]\nMostrar valores ordenados sus sensores de temperatura[667]\nSalir[0]";
         String mensajeDespedida="\nbye\n\tbye";
         String elecion="";
         boolean menuAbierto=true; 
-        Vehiculo vehiculo = new Vehiculo();
-        Sensor sensor= new Sensor();
+        Vehiculo vehiculo=new Vehiculo();
+        Sensor sensor=new Sensor();
         while(menuAbierto){
             System.out.println(banner); 
             System.out.println(mensajeMenu);
@@ -26,15 +26,17 @@ public class Principal{
                     System.out.println("Ingrese el modelo de su veiculo");
                     int modelo=input.nextInt();
                     System.out.println("Ingrese la marca de su veiculo");
-                    String marca=input.nextLine();
+                    String marca=input.next();
                     System.out.println("Ingrese el valor de su veiculo");
                     System.out.println("(cof cof, el $)");
                     double valor=input.nextDouble();
                     System.out.println("Ingrese el color de su veiculo");
-                    String color=input.nextLine();
+                    String color=input.next();
                     Vehiculo nuevoVehiculo=new Vehiculo(modelo,marca,valor,color);
                     vehiculo.vehiculos[vehiculo.posAnadir]=nuevoVehiculo;
+                    vehiculo.posAnadir=vehiculo.posAnadir+1;
                     System.out.println("Su vehiculo fue creado de forma correcta");
+                    System.out.println(vehiculo.vehiculos[0].toString());
                 }else{
                     System.out.println("[Error] base de datos de vehiculos esta llena");
                     System.out.println("para añadir nuevos veihiculos intente cambiar el tamaño del arreglo y volver a ejecutar el codigo");
@@ -139,6 +141,8 @@ public class Principal{
                 System.out.println(infoSesnores);
                 
             }
+            System.out.println("presione enter para continuar");
+            input.nextLine();
         }
     }
 }
