@@ -7,7 +7,6 @@
 	 \___\__,_|_|  |_|  |_|\__\___/ 
 
 ## tarea de la fundamentos de programacion en eafit(ST0242/2021-2)
-#(pasarlo a español)
 ### caracteristicas
 
 es bonito y tiene mas trabajo de solicitado , ademas tiene easter egg's  de otros trabajos ademas tiene documentacion pequeña y un pequeño FAQś
