@@ -1,12 +1,16 @@
+import java.util.ArrayList;
 public class Vehiculo{
-    public int tamano=10;
-    public int posAnadir=0;
+    public int idActual=1;
+    public int id=0;
     private int modelo;
     private String marca;
     private double valorComercial;
     private String color;
-    public Vehiculo[] vehiculos=new Vehiculo[tamano];
+    public ArrayList<Vehiculo> vehiculos = new ArrayList<Vehiculo>();
+    //public Vehiculo[] vehiculos=new Vehiculo[tamano];
     public Vehiculo(){
+        this.idActual=idActual+1;
+
     }
     public Vehiculo(int mo,String ma,double va){
         Vehiculo vehiculo=new Vehiculo(mo,ma,va,"verde");
@@ -24,7 +28,7 @@ public class Vehiculo{
     public String toStringVeiculos(){
         String infoVehiculos="";
         String infoVehiculo="";
-        for(int i=0;i<this.posAnadir;i++){
+        for(int i=0;i<this.vehiculos.length;i++){
             //String infoVehiculo="modelo:"+this.vehiculos[i].modelo+"\nmarca:"+this.vehiculos[i].marca+"\nvalor Comercial:"+String.valueOf(this.vehiculos[i].valorComercial)+"\ncolor:"+this.vehiculos[i].color;
             infoVehiculo=this.vehiculos[i].toString();
             infoVehiculos=infoVehiculos+"\tVehiculo"+i+"\n"+infoVehiculo+"\n";

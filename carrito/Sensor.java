@@ -5,6 +5,8 @@ public class Sensor{
     public int posAnadir=0;
     private String tipo;
     private double valor;
+    private int id;
+    public int idactual;
     public Sensor[] sensores=new Sensor[tamano];
     public Sensor(){
     }
