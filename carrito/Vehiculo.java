@@ -7,7 +7,6 @@ public class Vehiculo{
     private double valorComercial;
     private String color;
     public ArrayList<Vehiculo> vehiculos = new ArrayList<Vehiculo>();
-    //public Vehiculo[] vehiculos=new Vehiculo[tamano];
     public Vehiculo(){
         this.idActual=idActual+1;
 
@@ -28,18 +27,18 @@ public class Vehiculo{
     public String toStringVeiculos(){
         String infoVehiculos="";
         String infoVehiculo="";
-        for(int i=0;i<this.vehiculos.length;i++){
+        for(int i=0;i<this.vehiculos.size();i++){
             //String infoVehiculo="modelo:"+this.vehiculos[i].modelo+"\nmarca:"+this.vehiculos[i].marca+"\nvalor Comercial:"+String.valueOf(this.vehiculos[i].valorComercial)+"\ncolor:"+this.vehiculos[i].color;
-            infoVehiculo=this.vehiculos[i].toString();
+            infoVehiculo=this.vehiculos.get(i).toString();
             infoVehiculos=infoVehiculos+"\tVehiculo"+i+"\n"+infoVehiculo+"\n";
         }
         return infoVehiculos;
     }
     public String toStringVeiculosVerdes(){
         String infoVehiculos="";
-        for(int i=0;i<this.posAnadir;i++){
-            if("verde".equals(vehiculos[i].color)){
-                String infoVehiculo="modelo:"+vehiculos[i].modelo+"\nmarca:"+vehiculos[i].marca+"\nvalor Comercial:"+String.valueOf(vehiculos[i].valorComercial)+"\ncolor:"+vehiculos[i].color;
+        for(int i=0;i<this.vehiculos.size();i++){
+            if("verde".equals(this.vehiculos.get(i).color)){
+                String infoVehiculo="modelo:"+this.vehiculos.get(i).modelo+"\nmarca:"+this.vehiculos.get(i).marca+"\nvalor Comercial:"+String.valueOf(this.vehiculos.get(i).valorComercial)+"\ncolor:"+this.vehiculos.get(i).color;
                 infoVehiculos=infoVehiculos+"\tVeiculo"+i+"\n"+infoVehiculo+"\n";
             }
         }
@@ -47,7 +46,7 @@ public class Vehiculo{
     }
     public String filtrarModelo(int inicialInicial,int añoFinal){
         String infoVehiculos="";
-        for(int i=0;i<this.posAnadir;i++){
+        for(int i=0;i<this.vehiculos.size();i++){
             if(inicialInicial<=vehiculos[i].modelo&&añoFinal>=vehiculos[i].modelo){
                 String infoVehiculo="modelo:"+vehiculos[i].modelo+"\nmarca:"+vehiculos[i].marca+"\nvalor Comercial:"+String.valueOf(vehiculos[i].valorComercial)+"\ncolor:"+vehiculos[i].color;
                 infoVehiculos=infoVehiculos+"\tVeiculo"+i+"\n"+infoVehiculo+"\n";
@@ -55,7 +54,7 @@ public class Vehiculo{
         }
         return infoVehiculos;
     }
-    public int cantidadVehiculos(){return this.posAnadir;}
+    public int cantidadVehiculos(){return this.vehiculos.size();}
     public void setModelo(int mo){this.modelo=mo;}
     public void setMarca(String ma){this.marca=ma;}
     public void setValor(double va){this.valorComercial=va;}
