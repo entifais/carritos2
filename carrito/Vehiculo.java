@@ -70,7 +70,7 @@ public class Vehiculo{
         }
         return infoVehiculos;
     }
-    public int cantidadVehiculos(){return this.vehiculos.size();}
+    public void anadirSensor(Sensor s){this.sensores.add(s);}
     public void setModelo(int mo){this.modelo=mo;}
     public void setMarca(String ma){this.marca=ma;}
     public void setValor(double va){this.valorComercial=va;}
@@ -83,4 +83,5 @@ public class Vehiculo{
     public int getCantidad(){return this.vehiculos.size();}
     public int getCantidadSensores(){return this.sensores.size();}
     public ArrayList getSensores(){return this.sensores;}
+    public int cantidadVehiculos(){return this.vehiculos.size();}
 }
