@@ -6,7 +6,7 @@ public class Principal{
     public void mostrarMenu(){
         Scanner input = new Scanner(System.in);
         String banner="                     _ _              ____\n"+"  ___ __ _ _ __ _ __(_) |_ ___   ____//_]|________\n"+" / __/ _` | '__| '__| | __/ _ \\ (o _ |  -|   _  o|\n"+"| (_| (_| | |  | |  | | || (_) |`(_)-------(_)--'\n"+" \\___\\__,_|_|  |_|  |_|\\__\\___/ \n\nhecho por mi \n(no pongo mi nombre por que esta en una cuenta de github que inspira lastmia\nle recomiendo esta https://github.com/jero98772)\n";
-        String mensajeMenu="Crear vehiculo[1]\nMostrar informacion del vehiculos[2]\nMostrar canitidad de vehiculos[3]\nMostrar informacion de vehiculos de color verde[4]\nMostrar informacion del vehiculos modelos 2000 a 2021[5]\nMostrar informacion de vehiculos apartir de un rango de modelos[5xy]\nCrear sensor[6]\nmostrar informacion de todos los sensores[7]\nmostrar cantidad de sensores[8]\nmostrar informacion de sensores de temperatura[9]\nCrear sensor AQA[10]\nCrear sensor AQAv80[11]\nCrear sensor CanAirIO[12]\nMostrar informacion de sensores de temperatura de menor valor a mayor[666]\nMostrar valores ordenados sus sensores de temperatura[667]\nSalir[0]";
+        String mensajeMenu="Crear vehiculo[1]\nMostrar informacion del vehiculos[2]\nMostrar canitidad de vehiculos[3]\nMostrar informacion de vehiculos de color verde[4]\nbuscar vehiculo mediante id[5]\nMostrar informacion del vehiculos modelos 2000 a 2021[50-21]\nMostrar informacion de vehiculos apartir de un rango de modelos[5xy]\nCrear sensor[6]\nmostrar informacion de todos los sensores[7]\nmostrar cantidad de sensores[8]\nmostrar informacion de sensores de temperatura[9]\nCrear sensor AQA[10]\nCrear sensor AQAv80[11]\nCrear sensor CanAirIO[12]\nMostrar informacion de sensores de temperatura de menor valor a mayor[666]\nMostrar valores ordenados sus sensores de temperatura[667]\nSalir[0]";
         String mensajeDespedida="\nbye\n\tbye";
         String elecion="";
         boolean menuAbierto=true; 
@@ -22,7 +22,6 @@ public class Principal{
                 menuAbierto=false;
                 break;
             }else if(elecion.equals("1")||elecion.toLowerCase().equals("crear vehiculo")){
-                if(vehiculo.posAnadir<vehiculo.tamano){
                     System.out.println("Ingrese el modelo de su veiculo");
                     int modelo=input.nextInt();
                     System.out.println("Ingrese la marca de su veiculo");
@@ -33,25 +32,26 @@ public class Principal{
                     System.out.println("Ingrese el color de su veiculo");
                     String color=input.next();
                     Vehiculo nuevoVehiculo=new Vehiculo(modelo,marca,valor,color);
-                    vehiculo.vehiculos[vehiculo.posAnadir]=nuevoVehiculo;
-                    vehiculo.posAnadir=vehiculo.posAnadir+1;
+                    //ya x2 vehiculo.vehiculos[vehiculo.posAnadir]=nuevoVehiculo;
+                    //ya en el constructor vehiculo.posAnadir=vehiculo.posAnadir+1;
                     System.out.println("Su vehiculo fue creado de forma correcta");
-                    System.out.println(vehiculo.vehiculos[0].toString());
-                }else{
-                    System.out.println("[Error] base de datos de vehiculos esta llena");
-                    System.out.println("para añadir nuevos veihiculos intente cambiar el tamaño del arreglo y volver a ejecutar el codigo");
-                }
+                    System.out.println(vehiculo.vehiculos.toString());
+
             }else if(elecion.equals("2")||elecion.toLowerCase().equals("mostrar informacion del vehiculos")||elecion.toLowerCase().equals("mostrar informacion")||elecion.toLowerCase().equals("informacion")){
                 String infoVehiculos=vehiculo.toStringVeiculos();
                 System.out.println("\tInformacion de sus vehiculos\n");
                 System.out.println(infoVehiculos);
-            }else if(elecion.equals("3")||elecion.toLowerCase().equals("Mostrar canitidad de vehiculos")||elecion.toLowerCase().equals("canitidad de vehiculos")||elecion.toLowerCase().equals("canitidad")){
-                int cantidad=vehiculo.cantidadVehiculos();
+            }else if(elecion.equals("3")||elecion.toLowerCase().equals("mostrar canitidad de vehiculos")||elecion.toLowerCase().equals("canitidad de vehiculos")||elecion.toLowerCase().equals("canitidad")){
+                int cantidad=vehiculo.getCantidad();
                 System.out.println("Cantidad de vehiculos almacenados es:"+cantidad);
             }else if(elecion.equals("4")||elecion.toLowerCase().equals("mostrar informacion del vehiculos verdes")||elecion.toLowerCase().equals("mostrar informacion verde")||elecion.toLowerCase().equals("verdes")){
                 String infoVehiculos=vehiculo.toStringVeiculosVerdes();
                 System.out.println("Informacion de sus vehiculos color verde:\n"+infoVehiculos);
-            }else if(elecion.equals("5")||elecion.toLowerCase().equals("mostrar informacion del vehiculos de modelo 2000 a 2021")||elecion.toLowerCase().equals("modelo")||elecion.toLowerCase().equals("modelo filtrado")){
+            }else if(elecion.equals("5")||elecion.toLowerCase().equals("buscar vehiculo mediante id")||elecion.toLowerCase().equals("id")||elecion.toLowerCase().equals("buscar id")){
+                int idBuscar=input.nextInt();
+                String infoVehiculo=vehiculo.buscarID(idBuscar);
+                System.out.println("Informacion de sus vehiculos de modelo de 2000 a 2021 son:\n"+infoVehiculo);
+            }else if(elecion.equals("50-21")||elecion.toLowerCase().equals("mostrar informacion del vehiculos de modelo 2000 a 2021")||elecion.toLowerCase().equals("modelo")||elecion.toLowerCase().equals("modelo filtrado")){
                 String infoVehiculos=vehiculo.filtrarModelo(2000,2021);
                 System.out.println("Informacion de sus vehiculos de modelo de 2000 a 2021 son:\n"+infoVehiculos);
             }else if(elecion.equals("5xy")||elecion.toLowerCase().equals("mostrar informacion del vehiculos de modelo x a y")||elecion.toLowerCase().equals("modeloxy")||elecion.toLowerCase().equals("modelo filtrado personalisado")){

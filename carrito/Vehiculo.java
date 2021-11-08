@@ -48,6 +48,16 @@ public class Vehiculo{
         }
         return infoVehiculos;
     }
+    public String buscarID(int idBuscar){
+        String infoVehiculo="";
+        for(int i=0;i<this.vehiculos.size();i++){
+            if(idBuscar==this.vehiculos.get(i).id){
+                infoVehiculo=this.vehiculos.get(i).toString();
+                //String infoVehiculo="modelo:"+this.vehiculos.get(i).modelo+"\nmarca:"+this.vehiculos.get(i).marca+"\nvalor Comercial:"+String.valueOf(this.vehiculos.get(i).valorComercial)+"\ncolor:"+this.vehiculos.get(i).color;
+            }
+        }
+        return infoVehiculo;
+    }
     public String filtrarModelo(int inicialInicial,int añoFinal){
         String infoVehiculos="";
         String infoVehiculo="";
@@ -70,5 +80,7 @@ public class Vehiculo{
     public String getMarca(){return this.marca;}
     public double getValor(){return this.valorComercial;}
     public String getColor(){return this.color;}
+    public int getCantidad(){return this.vehiculos.size();}
+    public int getCantidadSensores(){return this.sensores.size();}
     public ArrayList getSensores(){return this.sensores;}
 }
