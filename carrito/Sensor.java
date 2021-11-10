@@ -24,6 +24,16 @@ public class Sensor{
         }
         return infoSensores;
     }
+    public static String toStringSensoresStatic(ArrayList<Sensor> sensors){
+        String infoSensores="";
+        String infoSensor="";
+        for(int i=0;i<sensors.size();i++){
+            //String infoSensor="tipo:"+sensores[i].tipo+"\nvalor:"+String.valueOf(sensores[i].valor);
+            infoSensor=sensors.get(i).toString();
+            infoSensores=infoSensores+"\tSensor"+i+"\n"+infoSensor+"\n";
+        }
+        return infoSensores;
+    }
     public String toString(){
         String infoSensor="tipo:"+this.tipo+"\nvalor"+String.valueOf(this.valor);
         return infoSensor;

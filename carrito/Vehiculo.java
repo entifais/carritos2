@@ -48,7 +48,7 @@ public class Vehiculo{
         }
         return infoVehiculos;
     }
-    public String buscarID(int idBuscar){
+    public String buscarIDString(int idBuscar){
         String infoVehiculo="";
         for(int i=0;i<this.vehiculos.size();i++){
             if(idBuscar==this.vehiculos.get(i).id){
@@ -57,6 +57,16 @@ public class Vehiculo{
             }
         }
         return infoVehiculo;
+    }
+    public Vehiculo buscarIDObj(int idBuscar){
+        //manejo de esepciones
+        String infoVehiculo="";
+        for(int i=0;i<this.vehiculos.size();i++){
+            if(idBuscar==this.vehiculos.get(i).id){
+                return this.vehiculos.get(i);
+            }
+        }
+        return this.vehiculos.get(this.vehiculos.size());//la logica n deberia rertortnar nada aqui pero es para que el compilador me deje en paz
     }
     public String filtrarModelo(int inicialInicial,int añoFinal){
         String infoVehiculos="";
