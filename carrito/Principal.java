@@ -7,7 +7,7 @@ public class Principal{
     public void mostrarMenu(){
         Scanner input = new Scanner(System.in);
         String banner="                     _ _              ____\n"+"  ___ __ _ _ __ _ __(_) |_ ___   ____//_]|________\n"+" / __/ _` | '__| '__| | __/ _ \\ (o _ |  -|   _  o|\n"+"| (_| (_| | |  | |  | | || (_) |`(_)-------(_)--'\n"+" \\___\\__,_|_|  |_|  |_|\\__\\___/ \n\nhecho por mi \n(no pongo mi nombre por que esta en una cuenta de github que inspira lastmia\nle recomiendo esta https://github.com/jero98772)\n";
-        String mensajeMenu="Crear vehiculo[1]\nMostrar informacion del vehiculos[2]\nMostrar canitidad de vehiculos[3]\nMostrar informacion de vehiculos de color verde[4]\nbuscar vehiculo mediante id[5]\nMostrar informacion del vehiculos modelos 2000 a 2021[50-21]\nMostrar informacion de vehiculos apartir de un rango de modelos[5xy]\nCrear sensor[6]\nmostrar sensores de un vehiculo mediante su id[7]\nmostrar informacion de todos los sensores[7old]\nmostrar cantidad de sensores[8]\nmostrar informacion de sensores de temperatura[9]\nCrear sensor AQA[10]\nCrear sensor AQAv80[11]\nCrear sensor CanAirIO[12]\nMostrar informacion de sensores de temperatura de menor valor a mayor[666]\nSalir[0]";
+        String mensajeMenu="Crear vehiculo[1]\nMostrar informacion del vehiculos[2]\nMostrar canitidad de vehiculos[3]\nMostrar informacion de vehiculos de color verde[4]\nbuscar vehiculo mediante id[5]\nMostrar informacion del vehiculos modelos 2000 a 2021[50-21]\nMostrar informacion de vehiculos apartir de un rango de modelos[5xy]\nCrear sensor[6]\nmostrar sensores de un vehiculo mediante su id[7]\nmostrar sensores de temperatura de todos los vehiculos[8]\nmostrar informacion de sensores de temperatura[9]\nCrear sensor AQA[10]\nCrear sensor AQAv80[11]\nCrear sensor CanAirIO[12]\nMostrar informacion de sensores de temperatura de menor valor a mayor[666]\nSalir[0]";
         String mensajeDespedida="\nbye\n\tbye";
         String elecion="";
         boolean menuAbierto=true; 
@@ -79,20 +79,16 @@ public class Principal{
                     System.out.println("[Error] "+idBuscar+" id no fue encontrado");
                     System.out.println("para añadir nuevos sensores intente cambiar el tamaño del arreglo y volver a ejecutar el codigo");
                 }
-            }else if(elecion.equals("7")||elecion.toLowerCase().equals("mostrar informacion de todos los sensores")||elecion.toLowerCase().equals("todos los sensores")){
+            }else if(elecion.equals("7")||elecion.toLowerCase().equals("mostrar sensores de temperatura de todos los vehiculos")||elecion.toLowerCase().equals("temperatura sensores todos vehiculos")){
                 System.out.println("ingrese el id del vehiculo ya existente:");
                 int idBuscar=input.nextInt();
                 Vehiculo vehiculo2=vehiculo.buscarIDObj(idBuscar);
                 Sensor.toStringSensoresStatic(vehiculo.getSensores());
-            }else if(elecion.equals("7old")||elecion.toLowerCase().equals("mostrar informacion de todos los sensores")||elecion.toLowerCase().equals("todos los sensores")){
-                String infoSesnores=sensor.toStringSensores();
-                System.out.println("\tInformacion de sus sensores\n");
-                System.out.println(infoSesnores);
             }else if(elecion.equals("8")||elecion.toLowerCase().equals("mostrar cantidad de sensores")||elecion.toLowerCase().equals("cantidad sensores")){
-                int cantidad=sensor.cantidadSensores();
+                String cantidad=vehiculo.informacionSensoresTemperatura();
                 System.out.println("Cantidad de sensores almacenados es:"+cantidad);
             }else if(elecion.equals("9")||elecion.toLowerCase().equals("mostrar informacion de sensores de temperatura")||elecion.toLowerCase().equals("mostrar informacion senores temperatura")){
-                String infoSesnores=sensor.toStringSensoresTemperatura();
+                String infoSesnores=sensor.informacionSensoresTemperatura();
                 System.out.println("\tInformacion de sus sensores de temperatura\n");
                 System.out.println(infoSesnores);
             }else if(elecion.equals("10")||elecion.toLowerCase().equals("crear sensor aqa")||elecion.toLowerCase().equals("aqa")){

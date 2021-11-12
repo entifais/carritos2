@@ -80,6 +80,31 @@ public class Vehiculo{
         }
         return infoVehiculos;
     }
+    public String informacionSensoresTemperatura(){
+        String infoSesores="";
+        for(int i=0;i<this.vehiculos.size();i++){
+                for(int ii=0;ii<this.vehiculos.get(i).sensores.size();ii++){
+                    if("temperatura".equals(this.vehiculos.get(i).sensores.get(ii).getTipo().toLowerCase()))
+                    infoSesores+=this.vehiculos.get(i).sensores.get(ii).toString();
+                }
+        }
+        return infoSesores;
+    }
+    public String vehicloMasSensores(){
+        String infoSesores="";
+        int cantidad=0;
+        sensor
+        for(int i=0;i<this.vehiculos.size();i++){
+            //this.vehiculos.get(i).sensores.size()
+            if(cantidad<this.vehiculos.get(i).sensores.size())
+            cantidad=
+                for(int ii=0;ii<this.vehiculos.get(i).sensores.size();ii++){
+                    if("temperatura".equals(this.vehiculos.get(i).sensores.get(ii).getTipo().toLowerCase()))
+                    infoSesores+=this.vehiculos.get(i).sensores.get(ii).toString();
+                }
+        }
+        return infoSesores;
+    }
     public void anadirSensor(Sensor s){this.sensores.add(s);}
     public void setModelo(int mo){this.modelo=mo;}
     public void setMarca(String ma){this.marca=ma;}

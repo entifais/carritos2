@@ -1,12 +1,8 @@
-import java.util.Collections;
 import java.util.ArrayList;
 public class Sensor{
     private String tipo;
     private double valor;
-    private int id;
-    public int idactual;
     public ArrayList<Sensor> sensores=new ArrayList<Sensor>();
-    public int tamano=8;
 
     public Sensor(){
     }
@@ -38,11 +34,11 @@ public class Sensor{
         String infoSensor="tipo:"+this.tipo+"\nvalor"+String.valueOf(this.valor);
         return infoSensor;
     }
-    public String toStringSensoresTemperatura(){
+    public static String toStringSensoresTemperatura(ArrayList<Sensor> sensors){
         String infoSensores="";
-        for(int i=0;i<this.sensores.size();i++){
-            if("temperatura".equals(sensores.get(i).tipo)){
-                String infoSensor="tipo:"+sensores.get(i).tipo+"\nvalor:"+sensores.get(i).valor;
+        for(int i=0;i<sensors.size();i++){
+            if("temperatura".equals(sensors.get(i).tipo)){
+                String infoSensor="tipo:"+sensors.get(i).tipo+"\nvalor:"+sensors.get(i).valor;
                 infoSensores=infoSensores+"\tSensor"+i+"\n"+infoSensor+"\n";
             }
         }
