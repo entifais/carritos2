@@ -93,15 +93,12 @@ public class Vehiculo{
     public String vehicloMasSensores(){
         String infoSesores="";
         int cantidad=0;
-        sensor
         for(int i=0;i<this.vehiculos.size();i++){
             //this.vehiculos.get(i).sensores.size()
-            if(cantidad<this.vehiculos.get(i).sensores.size())
-            cantidad=
-                for(int ii=0;ii<this.vehiculos.get(i).sensores.size();ii++){
-                    if("temperatura".equals(this.vehiculos.get(i).sensores.get(ii).getTipo().toLowerCase()))
-                    infoSesores+=this.vehiculos.get(i).sensores.get(ii).toString();
-                }
+            if(cantidad<this.vehiculos.get(i).sensores.size()){
+                cantidad=this.vehiculos.get(i).sensores.size();
+                infoSesores=this.vehiculos.get(i).toString();
+            }
         }
         return infoSesores;
     }
