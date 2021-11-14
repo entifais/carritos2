@@ -90,7 +90,7 @@ public class Vehiculo{
         }
         return infoSesores;
     }
-    public String vehicloMasSensores(){
+     public String vehicloMasSensores(){
         String infoSesores="";
         int cantidad=0;
         for(int i=0;i<this.vehiculos.size();i++){

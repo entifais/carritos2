@@ -1,11 +1,14 @@
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.io.File;
+import java.io.FileNotFoundException;//para solucionar un error
 public class Principal{
     public static void main(String[] args){
         new Principal().mostrarMenu();
     }
     public void mostrarMenu(){
         Scanner input = new Scanner(System.in);
+        final  String nombreArchivo="Contenedor_vehiculos.txt";
         String banner="                     _ _              ____\n"+"  ___ __ _ _ __ _ __(_) |_ ___   ____//_]|________\n"+" / __/ _` | '__| '__| | __/ _ \\ (o _ |  -|   _  o|\n"+"| (_| (_| | |  | |  | | || (_) |`(_)-------(_)--'\n"+" \\___\\__,_|_|  |_|  |_|\\__\\___/ \n\nhecho por mi \n(no pongo mi nombre por que esta en una cuenta de github que inspira lastmia\nle recomiendo esta https://github.com/jero98772)\n";
         String mensajeMenu="Crear vehiculo[1]\nMostrar informacion del vehiculos[2]\nMostrar canitidad de vehiculos[3]\nMostrar informacion de vehiculos de color verde[4]\nbuscar vehiculo mediante id[5]\nMostrar informacion del vehiculos modelos 2000 a 2021[50-21]\nMostrar informacion de vehiculos apartir de un rango de modelos[5xy]\nCrear sensor[6]\nmostrar sensores de un vehiculo mediante su id[7]\nmostrar sensores de temperatura de todos los vehiculos[8]\nmostrar informacion de sensores de temperatura[9]\n[10]\nCrear sensor AQAv80[11]\nCrear sensor CanAirIO[12]\nCrear sensor ets[13]\nCrear sensor AQA[14]\nMostrar informacion de sensores de temperatura de menor valor a mayor[666]\nSalir[0]";
         String mensajeDespedida="\nbye\n\tbye";
@@ -88,11 +91,19 @@ public class Principal{
                 String cantidad=vehiculo.informacionSensoresTemperatura();
                 System.out.println("Cantidad de sensores almacenados es:"+cantidad);
             }else if(elecion.equals("9")||elecion.toLowerCase().equals("mostrar informacion de sensores de temperatura")||elecion.toLowerCase().equals("mostrar informacion senores temperatura")){
-                String infoSesnores=sensor.informacionSensoresTemperatura();
+                String infoSesnores=vehiculo.vehicloMasSensores();
                 System.out.println("\tInformacion de sus sensores de temperatura\n");
                 System.out.println(infoSesnores);
             }else if(elecion.equals("10")||elecion.toLowerCase().equals("cargar vehiculos por defecto")||elecion.toLowerCase().equals("vehiculos defecto")){
-
+                try{
+                    File archivo=new File(nombreArchivo);
+                    Scanner contendioArchivo=new Scanner(archivo);
+                    while(contendioArchivo.hasNextLine()){
+                                String line = contendioArchivo.nextLine();
+                    }
+                } catch (Exception e) {
+                    ;
+                }
             }else if(elecion.equals("11")||elecion.toLowerCase().equals("crear sensor aqav80")||elecion.toLowerCase().equals("aqav80")){
                 System.out.println("ingrese el id del vehiculo ya existente:");
                 int idBuscar=input.nextInt();
