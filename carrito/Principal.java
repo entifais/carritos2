@@ -26,21 +26,20 @@ public class Principal{
                 menuAbierto=false;
                 break;
             }else if(elecion.equals("1")||elecion.toLowerCase().equals("crear vehiculo")){
-                    System.out.println("Ingrese el modelo de su veiculo");
-                    int modelo=input.nextInt();
-                    System.out.println("Ingrese la marca de su veiculo");
-                    String marca=input.next();
-                    System.out.println("Ingrese el valor de su veiculo");
-                    System.out.println("(cof cof, el $)");
-                    double valor=input.nextDouble();
-                    System.out.println("Ingrese el color de su veiculo");
-                    String color=input.next();
-                    Vehiculo nuevoVehiculo=new Vehiculo(modelo,marca,valor,color);
-                    //ya x2 vehiculo.vehiculos[vehiculo.posAnadir]=nuevoVehiculo;
-                    //ya en el constructor vehiculo.posAnadir=vehiculo.posAnadir+1;
-                    System.out.println("Su vehiculo fue creado de forma correcta");
-                    System.out.println(vehiculo.vehiculos.toString());
-
+                System.out.println("Ingrese el modelo de su veiculo");
+                int modelo=input.nextInt();
+                System.out.println("Ingrese la marca de su veiculo");
+                String marca=input.next();
+                System.out.println("Ingrese el valor de su veiculo");
+                System.out.println("(cof cof, el $)");
+                double valor=input.nextDouble();
+                System.out.println("Ingrese el color de su veiculo");
+                String color=input.next();
+                Vehiculo nuevoVehiculo=new Vehiculo(modelo,marca,valor,color);
+                //ya x2 vehiculo.vehiculos[vehiculo.posAnadir]=nuevoVehiculo;
+                //ya en el constructor vehiculo.posAnadir=vehiculo.posAnadir+1;
+                System.out.println("Su vehiculo fue creado de forma correcta");
+                System.out.println(vehiculo.vehiculos.toString());
             }else if(elecion.equals("2")||elecion.toLowerCase().equals("mostrar informacion del vehiculos")||elecion.toLowerCase().equals("mostrar informacion")||elecion.toLowerCase().equals("informacion")){
                 String infoVehiculos=vehiculo.toStringVeiculos();
                 System.out.println("\tInformacion de sus vehiculos\n");
@@ -99,7 +98,17 @@ public class Principal{
                     File archivo=new File(nombreArchivo);
                     Scanner contendioArchivo=new Scanner(archivo);
                     while(contendioArchivo.hasNextLine()){
-                                String line = contendioArchivo.nextLine();
+                        String lineaTexto = contendioArchivo.nextLine();
+                        //esto
+                        int pos1=lineaTexto.indexOf(",");
+                        int pos2=lineaTexto.indexOf(",",pos1+1);
+                        int pos3=lineaTexto.indexOf(",",pos2+1);
+                        int modelo=Integer.parseInt(lineaTexto.substring(0,pos1));
+                        String marca=lineaTexto.substring(pos1,pos2);
+                        double valor= Double.parseDouble(lineaTexto.substring(pos1,pos2));
+                        String color=lineaTexto.substring(pos3,lineaTexto.length());
+                        //hay dios...por que java no puede retornar multiples tipos como python, no poder meter esto en una funcion es doloroso
+                        Vehiculo nuevoVehiculo=new Vehiculo(modelo,marca,valor,color);
                     }
                 } catch (Exception e) {
                     ;
