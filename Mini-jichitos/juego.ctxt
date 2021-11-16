@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=juego
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment2.params=representaciones
+comment2.target=void\ mostsrarTablero(java.lang.String[])
+comment3.params=
+comment3.target=void\ generarTablero()
+numComments=4

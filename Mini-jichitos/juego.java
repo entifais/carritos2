@@ -1,10 +1,12 @@
 import java.util.Scanner;
+import java.io.File;
+import java.io.FileNotFoundException;
 public class juego{
     public static void main(String[] args){
-        String banner="   _ _            _                            \n  (_|_)_ __   ___| |__   ___  ___    ___ _ __  \n  | | | '_ \ / __| '_ \ / _ \/ __|  / _ \ '_ \ \n  | | | | | | (__| | | | (_) \__ \ |  __/ | | |\n _/ |_|_| |_|\___|_| |_|\___/|___/  \___|_| |_|\n|__/                                           \n _                     _ _            \n| |__   __ _ _ __ _ __(_) |_ ___  ___ \n| '_ \ / _` | '__| '__| | __/ _ \/ __|\n| |_) | (_| | |  | |  | | || (_) \__ \\n|_.__/ \__,_|_|  |_|  |_|\__\___/|___/\n                                      \n"
-        Stirng linea="---------------------------------------"
+        String banner="   _ _            _                            \n  (_|_)_ __   ___| |__   ___  ___    ___ _ __  \n  | | | '_ \\ / __| '_ \\ / _ \\/ __|  / _ \\ '_ \\ \n  | | | | | | (__| | | | (_) \\__ \\ |  __/ | | |\n _/ |_|_| |_|\\___|_| |_|\\___/|___/  \\___|_| |_|\n|__/                                           \n _                     _ _            \n| |__   __ _ _ __ _ __(_) |_ ___  ___ \n| '_ \\ / _` | '__| '__| | __/ _ \\/ __|\n| |_) | (_| | |  | |  | | || (_) \\__ \\n|_.__/ \\__,_|_|  |_|  |_|\\__\\___/|___/\n                                      \n";
+        String linea="---------------------------------------";
         generarTablero();
-        mostsrarTablero();
+        mostsrarTablero(Bichos.getRepresentaciones(Bichos.bichitos));
         Scanner input=new Scanner(System.in);
         while(true){
             System.out.println(banner);
@@ -16,43 +18,63 @@ public class juego{
             System.out.println("[4]: recarga de energia celestial");
             int opcion=input.nextInt();
             if(opcion==1){
-            }else if(opcion==1){
+            }else if(opcion==4){
+                try{
+                    File file=new File("inspiracion.txt");
+                    input=new Scanner(file);
+                    for(int i=1;i<file.length();i++){
+                        System.out.println(input.nextLine());
+                    }
+                    input.close();
+                    input=new Scanner(System.in);
+                } catch (FileNotFoundException e) {
+                  System.out.println("error");
+                }
             } 
         }
     }
-    public void mostsrarTablero(){
+    public static void mostsrarTablero(String[] representaciones){
         System.out.println();
         System.out.println("---------------");
-        System.out.println("|"+bicho.getRepresentacion()+"|"+bicho.getRepresentacion()+"|");
+        System.out.println("|"+representaciones[0]+"|"+representaciones[1]+"|");
         System.out.println("---------------");
-        System.out.println("|"+bicho.getRepresentacion()+"|"+bicho.getRepresentacion()+"|");
+        System.out.println("|"+representaciones[2]+"|"+representaciones[3]+"|");
         System.out.println("---------------");
     }
-    public void generarTablero(){
+    public static void generarTablero(){
         //generacion del tablero
         int numero1 = (int)(Math.random()%Bichos.tamanoCuadrado);
         System.out.print("---------------\n|");
-        for(int iterador=0;i<tamanoCuadrado;i++){
-            String bin=Integer.toBinaryString(iterador);
+        int i=0;
+        int ii=0;
+        for(int iterador=0;iterador<Bichos.tamanoCuadrado;iterador++){
+            
+            /*String bin=Integer.toBinaryString(iterador);
             int i=Integer.parseInt(bin.charAt(0));
             int ii=Integer.parseInt(bin.charAt(1));
-            //es mas bonito asi con permutaciones de bits
-            /*tambien se puede oprar haciendo una mascara de bitss asi 
+            //no se que hise pero esta bonito , pero
+               tambien se puede oprar haciendo una mascara de bits asi 
                int i=01and(&) bin;
                int ii=10and(&) bin;
+            ... efectos secundarios de ir y salir gomoso de competiva...
             */
-            if(numero1<=tamanoCuadrado){
+            i++;
+            if(iterador%Math.sqrt(Bichos.tamanoCuadrado)==0) {
+                ii++;
+                i=0;
+            }
+            Bichos bicho;
+            if(numero1<=Bichos.tamanoCuadrado){
                 int decion = (int)(Math.random()%2)+1;
                 if(decion==1){
-                    Bichos bicho=new bichoNormal(10);
-                }else if(decion==2){
-                    Bichos bicho=new bichoAlien(20);
+                    bicho=new bichoAlien(20);  
+                }else{
+                    bicho=new bichoNormal(10);
                 }
-                
             }else{
-                bicho=Bichos(0,"  ");//un bicho no muerto y tampoco invisible , solo es una forma de llenar espacio
+                bicho=new Bichos(0,"  ");//un bicho no muerto y tampoco invisible , solo es una forma de llenar espacio
             }
-            bichitos[ii][i]=bicho;
+            Bichos.bichitos[i][ii]=bicho;
         }
     }
 }

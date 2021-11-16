@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=Bichos
+comment1.params=s\ rp
+comment1.target=Bichos(int,\ java.lang.String)
+comment2.params=a
+comment2.target=void\ restarSalud(int)
+comment3.params=
+comment3.target=void\ duplicarSalud()
+comment4.params=
+comment4.target=int\ getSalud()
+comment5.params=
+comment5.target=java.lang.String\ getRepresentacion()
+comment6.params=bichos
+comment6.target=java.lang.String[]\ getRepresentaciones(Bichos[][])
+numComments=7
