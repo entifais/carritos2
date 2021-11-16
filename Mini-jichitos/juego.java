@@ -10,13 +10,17 @@ public class juego{
         Scanner input=new Scanner(System.in);
         while(true){
             System.out.println(banner);
+            System.out.println("Elija una opcion:");
+            System.out.println("[1]: iniciar juego");
+            System.out.println("[2]: salir juego");
+            int opcion=input.nextInt();
             System.out.println(linea);
             System.out.println("Elija una opcion:");
             System.out.println("[1]: Disparar una bala");
             System.out.println("[2]: Activar bomba atómica");
             System.out.println("[3]:");
             System.out.println("[4]: recarga de energia celestial");
-            int opcion=input.nextInt();
+            opcion=input.nextInt();
             if(opcion==1){
             }else if(opcion==4){
                 try{
@@ -30,7 +34,9 @@ public class juego{
                 } catch (FileNotFoundException e) {
                   System.out.println("error");
                 }
-            } 
+            }else{
+                System.out.println("opcion invalida");
+            }
         }
     }
     public static void mostsrarTablero(String[] representaciones){
@@ -44,10 +50,9 @@ public class juego{
     public static void generarTablero(){
         //generacion del tablero
         int numero1 = (int)(Math.random()%Bichos.tamanoCuadrado);
-        System.out.print("---------------\n|");
         int i=0;
         int ii=0;
-        for(int iterador=0;iterador<Bichos.tamanoCuadrado;iterador++){
+        for(int iterador=0;iterador<Bichos.tamanoCuadrado-1;iterador++){
             
             /*String bin=Integer.toBinaryString(iterador);
             int i=Integer.parseInt(bin.charAt(0));
@@ -58,11 +63,7 @@ public class juego{
                int ii=10and(&) bin;
             ... efectos secundarios de ir y salir gomoso de competiva...
             */
-            i++;
-            if(iterador%Math.sqrt(Bichos.tamanoCuadrado)==0) {
-                ii++;
-                i=0;
-            }
+
             Bichos bicho;
             if(numero1<=Bichos.tamanoCuadrado){
                 int decion = (int)(Math.random()%2)+1;
@@ -75,6 +76,11 @@ public class juego{
                 bicho=new Bichos(0,"  ");//un bicho no muerto y tampoco invisible , solo es una forma de llenar espacio
             }
             Bichos.bichitos[i][ii]=bicho;
+            i++;
+            if((iterador%Math.sqrt(Bichos.tamanoCuadrado))==0) {
+                ii++;
+                i=0;
+            }
         }
     }
 }

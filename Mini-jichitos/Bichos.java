@@ -18,11 +18,12 @@ public class Bichos{
     public int getSalud(){return this.salud;}
     public String getRepresentacion(){return this.representacion;}
     public static String[] getRepresentaciones(Bichos[][] bichos){
-        String[] rpBichos=new String[tamano*tamano];
-        for(int i=0;i<tamano;i++){
-            //podria usar 2 ciclos y una ecuacion lineal pero es mas bacano con bits i*(tamano*tamano)+ii
-            for(int ii=0;ii<tamano;ii++){
-            rpBichos[i*(tamano*tamano)+ii]=bichos[ii][i].getRepresentacion();
+        int counter=0;
+        String[] rpBichos=new String[Bichos.tamano*Bichos.tamano];
+        for(int i=0;i<Bichos.tamano;i++){
+            for(int ii=0;ii<Bichos.tamano;ii++){
+                rpBichos[counter]=bichos[i][ii].getRepresentacion();
+                counter++;
             }
         }
         return rpBichos;
