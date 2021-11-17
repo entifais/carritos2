@@ -20,9 +20,9 @@ es bonito y tiene mas trabajo de solicitado , ademas tiene easter egg's  de otro
 
 ### Screenshots
 
-![](https://raw.githubusercontent.com/entifais/carritos/main/docs/screnshots/1.png)
-![](https://raw.githubusercontent.com/entifais/carritos/main/docs/screnshots/2.png)
-![](https://raw.githubusercontent.com/entifais/carritos/main/docs/screnshots/3.png)
+![](https://github.com/entifais/jichos-en-carritos2/blob/main/docs/screnshots/1.png?raw=true)
+![](https://github.com/entifais/jichos-en-carritos2/blob/main/docs/screnshots/2.png?raw=true)
+![](https://github.com/entifais/jichos-en-carritos2/blob/main/docs/screnshots/3.png?raw=true)
 
 
 ### Instalar
