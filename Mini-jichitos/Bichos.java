@@ -3,7 +3,9 @@ public class Bichos{
     private static int tamano=2;
     private String representacion;
     public static int tamanoCuadrado=tamano*tamano;
-    public static Bichos[][] bichitos=new Bichos[tamano][tamano];
+    public static Bichos[][] bichitos=new Bichos[Bichos.tamano][Bichos.tamano];
+    public Bichos(){
+    }
     public Bichos(int s,String rp){
         this.salud=s;
         this.representacion=rp;
@@ -19,10 +21,11 @@ public class Bichos{
     public String getRepresentacion(){return this.representacion;}
     public static String[] getRepresentaciones(Bichos[][] bichos){
         int counter=0;
-        String[] rpBichos=new String[Bichos.tamano*Bichos.tamano];
-        for(int i=0;i<Bichos.tamano;i++){
-            for(int ii=0;ii<Bichos.tamano;ii++){
-                rpBichos[counter]=bichos[i][ii].getRepresentacion();
+        String[] rpBichos=new String[Bichos.tamanoCuadrado];
+        for(int i=0;i<2;i++){
+            for(int ii=0;ii<2;ii++){
+                            System.out.println("i="+i+"|ii="+ii+"|counter="+counter);
+                rpBichos[counter]=bichos[i][ii].getRepresentacion();//Intente generando una insatcia y trasnportandola
                 counter++;
             }
         }

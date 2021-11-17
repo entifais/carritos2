@@ -4,7 +4,14 @@
 	  ___ __ _ _ __ _ __(_) |_ ___   ____//_]|________
 	 / __/ _` | '__| '__| | __/ _ \ (o _ |  -|   _  o|
 	| (_| (_| | |  | |  | | || (_) |`(_)-------(_)--'
-	 \___\__,_|_|  |_|  |_|\__\___/ 
+	 \___\__,_|_|  |_|  |_|\__\___/ 's 2
+	  __                 _                            _        _           
+	 / _|_   _ _ __   __| | __ _ _ __ ___   ___ _ __ | |_ __ _| | ___  ___ 
+	| |_| | | | '_ \ / _` |/ _` | '_ ` _ \ / _ \ '_ \| __/ _` | |/ _ \/ __|
+	|  _| |_| | | | | (_| | (_| | | | | | |  __/ | | | || (_| | |  __/\__ \
+	|_|  \__,_|_| |_|\__,_|\__,_|_| |_| |_|\___|_| |_|\__\__,_|_|\___||___/
+
+	
 
 ## tarea de la fundamentos de programacion en eafit(ST0242/2021-2)
 ### caracteristicas
@@ -13,7 +20,10 @@ es bonito y tiene mas trabajo de solicitado , ademas tiene easter egg's  de otro
 
 ### Screenshots
 
-![](https://raw.githubusercontent.com/entifais/carritos/main/docs/screnshots/2021-10-20-211824_875x591_scrot.png)
+![](https://raw.githubusercontent.com/entifais/carritos/main/docs/screnshots/1.png)
+![](https://raw.githubusercontent.com/entifais/carritos/main/docs/screnshots/2.png)
+![](https://raw.githubusercontent.com/entifais/carritos/main/docs/screnshots/3.png)
+
 
 ### Instalar
 
