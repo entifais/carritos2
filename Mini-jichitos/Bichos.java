@@ -19,13 +19,13 @@ public class Bichos{
     //public static verificarBichosVivos()}
     public int getSalud(){return this.salud;}
     public String getRepresentacion(){return this.representacion;}
-    public static String[] getRepresentaciones(Bichos[][] bichos){
+    public String[] getRepresentaciones(){
         int counter=0;
         String[] rpBichos=new String[Bichos.tamanoCuadrado];
         for(int i=0;i<2;i++){
             for(int ii=0;ii<2;ii++){
-                            System.out.println("i="+i+"|ii="+ii+"|counter="+counter);
-                rpBichos[counter]=bichos[i][ii].getRepresentacion();//Intente generando una insatcia y trasnportandola
+                System.out.println(this.bichitos[i][0].getRepresentacion());
+                rpBichos[counter]=this.bichitos[i][0].getRepresentacion();//Intente generando una insatcia y trasnportandola
                 counter++;
             }
         }
