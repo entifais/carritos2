@@ -14,38 +14,63 @@ public class juego{
             System.out.println("[2]: salir juego");
             int opcion=input.nextInt();
             if(opcion==1){
-                System.out.println(linea);
-                mostsrarTablero(bichos.getRepresentaciones());
-                System.out.println(linea);
-                System.out.println("Elija una opcion:");
-                System.out.println("[1]: Disparar una bala");
-                System.out.println("[2]: Activar bomba atómica");
-                System.out.println("[3]:");
-                System.out.println("[4]: Recarga de energia celestial");
-                opcion=input.nextInt();
-                if(opcion==1){
-                    System.out.println("Seleciona la cordenada a disparar en xy(default:00):");
-                    String opcionDisparo=input.next();
-                    if(opcionDisparo.length()==2 && (opcionDisparo.contains("0")) || (opcionDisparo.contains("1"))){
-                    }else{
-                        System.out.println("disparo invalido , se seleciono la cordenada 00 como punto de destino:");
-                    }   
-                }else if(opcion==4){
-                try{
-                    File file=new File("inspiracion.txt");
-                    input=new Scanner(file);
-                    for(int i=1;i<file.length();i++){
-                        if(input.hasNextLine()){
-                            System.out.println(input.nextLine());
+                while(Bichos.verificarBichosVivos(bichos.como1d())){
+                    System.out.println(linea);
+                    mostsrarTablero(bichos.como1d());
+                    System.out.println(linea);
+                    System.out.println("Elija una opcion:");
+                    System.out.println("[1]: Disparar una bala");
+                    System.out.println("[2]: Activar bomba atómica");
+                    System.out.println("[3]: Activar bicho mutante");
+                    System.out.println("[4]: Recarga de energia celestial");
+                    opcion=input.nextInt();
+                    if(opcion==1){
+                        System.out.println("Seleciona la cordenada a disparar en xy(default:00):");
+                        String opcionDisparo=input.next();
+                        if(opcionDisparo.length()==2 && (opcionDisparo.contains("0")) || (opcionDisparo.contains("1"))){
+                            int y=Integer.parseInt( String.valueOf(opcionDisparo.charAt(0)));
+                            int x=Integer.parseInt( String.valueOf(opcionDisparo.charAt(1)));
+                            if(bichos.bichitos[x][y].estaVivo()){
+                                System.out.println("disparo asertdado en"+opcionDisparo+" a "+bichos.bichitos[x][y].getRepresentacion());
+                                bichos.bichitos[x][y].restarSalud(5);
+                            }else{
+                                System.out.println("disparo invalido ,pero con gusto se resta 5 para re-matar al bicho muerto [ ;-) ]");
+                                bichos.bichitos[x][y].restarSalud(5);
+                            }   
+                        }else{
+                            System.out.println("disparo invalido , se seleciono la cordenada 00 como punto de destino:");
+                        }   
+                    }else if(opcion==2){
+                        int numero = (int)((Math.random()*10)%Bichos.tamanoCuadrado);
+                        String bin;
+                        if (numero<2){
+                            bin="0"+Integer.toBinaryString(numero);
+                        }else{
+                            bin=Integer.toBinaryString(numero);    
                         }
+                        int i=Integer.parseInt( String.valueOf(bin.charAt(0)));
+                        int ii=Integer.parseInt( String.valueOf(bin.charAt(1)));
+                        bichos.bichitos[i][ii].muerteTotal();
+                        System.out.println("el bicho"+bichos.bichitos[i][ii].getRepresentacion()+" en "+bin+" murio");                   
+                    }else if(opcion==3){
+                        bichos.menosSalud(bichos.como1d());
+                    }else if(opcion==4){
+                    try{
+                        File file=new File("inspiracion.txt");
+                        input=new Scanner(file);
+                        for(int i=1;i<file.length();i++){
+                            if(input.hasNextLine()){
+                                System.out.println(input.nextLine());
+                            }
+                        }
+                        input.close();
+                        input=new Scanner(System.in);
+                    }   catch (FileNotFoundException e) {
+                      System.out.println("[Error] con el archvio");
                     }
-                    input.close();
-                    input=new Scanner(System.in);
-                } catch (FileNotFoundException e) {
-                  System.out.println("error");
-                }
-                }else{
-                System.out.println("opcion invalida");
+                    }else{
+                        System.out.println("Opcion invalida, vuelva hacer una elecion");
+                    }
                 }
             }else{
                 System.out.println("bye bye");
@@ -53,12 +78,12 @@ public class juego{
             }
         }
     }
-    public static void mostsrarTablero(String[] representaciones){
+    public static void mostsrarTablero(Bichos[] b){
         System.out.println();
         System.out.println("---------------");
-        System.out.println("|"+representaciones[0]+"|"+representaciones[1]+"|");
+        System.out.println("|"+b[0].toStringTablero()+"|"+b[1].toStringTablero()+"|");
         System.out.println("---------------");
-        System.out.println("|"+representaciones[2]+"|"+representaciones[3]+"|");
+        System.out.println("|"+b[2].toStringTablero()+"|"+b[3].toStringTablero()+"|");
         System.out.println("---------------");
     }
     public static Bichos generarTablero(){
@@ -68,8 +93,6 @@ public class juego{
         if(numero1==0){
             numero1=1;
         }
-        //int i=0;
-        //int ii=0;
         for(int iterador=0;iterador<Bichos.tamanoCuadrado;iterador++){
             String bin;
             if (iterador<2){
@@ -110,7 +133,7 @@ public class juego{
                 i=0;
             }*/
         }
-        mostsrarTablero(bichoP.getRepresentaciones());
+        mostsrarTablero(bichoP.como1d());
         return bichoP;
     }
 }
