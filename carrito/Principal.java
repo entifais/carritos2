@@ -190,13 +190,12 @@ public class Principal{
                 System.out.println("ingrese el id del vehiculo ya existente:");
                 int idBuscar=input.nextInt();
                 String infoSesnores="";
-                ArrayList<Sensor> sensoresOrdenados=Vehiculo.SensoresTemperaturaOrdetnados666();
+                ArrayList<Sensor> sensoresOrdenados=Vehiculo.SensoresTemperaturaOrdetnados666(Vehiculo.getTodosSensores());
                 System.out.println("\tInformacion de sus sensores de temperatura\n");
                 for(int i=0;i<sensoresOrdenados.size();i++){
                     infoSesnores=infoSesnores+sensoresOrdenados.get(i).toString();
                 }
                 System.out.println(infoSesnores);
-
             }else{System.out.println(elecion+" no es una opcion valida\n");}
             System.out.println("presione enter para continuar");
             input.nextLine();

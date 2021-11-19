@@ -121,7 +121,7 @@ public class Vehiculo{
         }
         return infoSesores;
     }
-    public ArrayList<Sensor> SensoresTemperaturaOrdetnados666(ArrayList<Sensor> sensores){
+    public static ArrayList<Sensor> SensoresTemperaturaOrdetnados666(ArrayList<Sensor> sensores){
         int cantidadSensoresTemperatura=0;
         for(int i=0;i<sensores.size();i++){
             if("temperatura".equals(sensores.get(i).getTipo())){
@@ -144,6 +144,15 @@ public class Vehiculo{
         }
         //esperando respuesta si se retornan los objetos o los valores de temperatura
         return sensores;
+    }
+    public static ArrayList<Sensor> getTodosSensores(){
+        ArrayList<Sensor> todosSensores=new ArrayList<Sensor>();
+        for(int i=0;i<Vehiculo.vehiculos.size();i++){
+           for(int ii=0;ii<Vehiculo.vehiculos.get(i).sensores.size();ii++){
+                    todosSensores.add(Vehiculo.vehiculos.get(i).sensores.get(ii));
+                }
+            }
+        return todosSensores;
     }
     public void anadirSensor(Sensor s){this.sensores.add(s);}
     public void setModelo(int mo){this.modelo=mo;}
