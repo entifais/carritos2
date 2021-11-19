@@ -2,7 +2,6 @@ import java.util.ArrayList;
 public class Sensor{
     private String tipo;
     private double valor;
-    public ArrayList<Sensor> sensores=new ArrayList<Sensor>();
 
     public Sensor(){
     }
@@ -10,12 +9,12 @@ public class Sensor{
         this.tipo=t;
         this.valor=v;
     }
-    public String toStringSensores(){
+    public String toStringSensores(ArrayList<Sensor> sensores){
         String infoSensores="";
         String infoSensor="";
-        for(int i=0;i<this.sensores.size();i++){
+        for(int i=0;i<sensores.size();i++){
             //String infoSensor="tipo:"+sensores[i].tipo+"\nvalor:"+String.valueOf(sensores[i].valor);
-            infoSensor=this.sensores.get(i).toString();
+            infoSensor=sensores.get(i).toString();
             infoSensores=infoSensores+"\tSensor"+i+"\n"+infoSensor+"\n";
         }
         return infoSensores;
@@ -44,23 +43,23 @@ public class Sensor{
         }
         return infoSensores;
     }
-    public ArrayList<Sensor> SensoresTemperaturaOrdetnados666(){
+    public ArrayList<Sensor> SensoresTemperaturaOrdetnados666(ArrayList<Sensor> sensores){
         int cantidadSensoresTemperatura=0;
-        for(int i=0;i<this.sensores.size();i++){
-            if("temperatura".equals(this.sensores.get(i).tipo)){
+        for(int i=0;i<sensores.size();i++){
+            if("temperatura".equals(sensores.get(i).tipo)){
                 cantidadSensoresTemperatura=cantidadSensoresTemperatura+1;
             }
             if(cantidadSensoresTemperatura>1){
                 break;
             }
         }//se hace este for y los if para evitar ordenar un solo objeto , esto produciria un error
-        for(int i=0;i<this.sensores.size()-1;i++){
+        for(int i=0;i<sensores.size()-1;i++){
             if("temperatura".equals(sensores.get(i).tipo)){
-                for(int ii=0;ii<this.sensores.size()-i-1;ii++){
-                    if(this.sensores.get(ii).valor>sensores.get(ii+1).valor){
-                        Sensor tmp = this.sensores.get(ii);
-                        this.sensores.set(ii,this.sensores.get(ii+1));
-                        this.sensores.set(ii+1,tmp);
+                for(int ii=0;ii<sensores.size()-i-1;ii++){
+                    if(sensores.get(ii).valor>sensores.get(ii+1).valor){
+                        Sensor tmp = sensores.get(ii);
+                        sensores.set(ii,sensores.get(ii+1));
+                        sensores.set(ii+1,tmp);
                     }
                 }
             }

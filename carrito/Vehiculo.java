@@ -1,17 +1,17 @@
 import java.util.ArrayList;
 public class Vehiculo{
-    public int idActual=1;
-    public int id=0;
+    public static ArrayList<Vehiculo> vehiculos=new ArrayList<Vehiculo>();
+    public static int idActual=1;
+    private int id=0;
     private int modelo;
     private String marca;
     private double valorComercial;
     private String color;
     private ArrayList<Sensor> sensores=new ArrayList<Sensor>();
-    public static ArrayList<Vehiculo> vehiculos=new ArrayList<Vehiculo>();
     public Vehiculo(){
-        this.id=idActual;
-        this.idActual=idActual+1;
+        this.setId(Vehiculo.idActual);
         Vehiculo.vehiculos.add(this);
+        Vehiculo.idActual=idActual+1;
     }
     public Vehiculo(int mo,String ma,double va){
         Vehiculo vehiculo=new Vehiculo(mo,ma,va,"verde");
@@ -21,27 +21,28 @@ public class Vehiculo{
         this.marca=ma;
         this.valorComercial=va;
         this.color=co;
+        Vehiculo.vehiculos.add(this);
     }
     public String toString(){
-        String infoVehiculo="id"+this.id+"\nmodelo:"+this.modelo+"\nmarca:"+this.marca+"\nvalor Comercial:"+String.valueOf(this.valorComercial)+"\ncolor:"+this.color;
+        String infoVehiculo="id:"+this.id+"\nmodelo:"+this.modelo+"\nmarca:"+this.marca+"\nvalor Comercial:"+String.valueOf(this.valorComercial)+"\ncolor:"+this.color;
         return infoVehiculo;
     }
-    public String toStringVeiculos(){
+    public static String toStringVeiculos(){
         String infoVehiculos="";
         String infoVehiculo="";
-        for(int i=0;i<this.vehiculos.size();i++){
+        for(int i=0;i<Vehiculo.vehiculos.size();i++){
             //String infoVehiculo="modelo:"+this.vehiculos[i].modelo+"\nmarca:"+this.vehiculos[i].marca+"\nvalor Comercial:"+String.valueOf(this.vehiculos[i].valorComercial)+"\ncolor:"+this.vehiculos[i].color;
-            infoVehiculo=this.vehiculos.get(i).toString();
+            infoVehiculo=Vehiculo.vehiculos.get(i).toString();
             infoVehiculos=infoVehiculos+"\tVehiculo"+i+"\n"+infoVehiculo+"\n";
         }
         return infoVehiculos;
     }
-    public String toStringVeiculosVerdes(){
+    public static String toStringVeiculosVerdes(){
         String infoVehiculos="";
         String infoVehiculo="";
-        for(int i=0;i<this.vehiculos.size();i++){
-            if("verde".equals(this.vehiculos.get(i).color)){
-                infoVehiculo=this.vehiculos.get(i).toString();
+        for(int i=0;i<Vehiculo.vehiculos.size();i++){
+            if("verde".equals(Vehiculo.vehiculos.get(i).color)){
+                infoVehiculo=Vehiculo.vehiculos.get(i).toString();
                 //String infoVehiculo="modelo:"+this.vehiculos.get(i).modelo+"\nmarca:"+this.vehiculos.get(i).marca+"\nvalor Comercial:"+String.valueOf(this.vehiculos.get(i).valorComercial)+"\ncolor:"+this.vehiculos.get(i).color;
                 infoVehiculos=infoVehiculos+"\tVeiculo"+i+"\n"+infoVehiculo+"\n";
             }
@@ -104,6 +105,7 @@ public class Vehiculo{
     }
     public void anadirSensor(Sensor s){this.sensores.add(s);}
     public void setModelo(int mo){this.modelo=mo;}
+    public void setId(int id){this.id=id;}
     public void setMarca(String ma){this.marca=ma;}
     public void setValor(double va){this.valorComercial=va;}
     public void setColor(String co){this.color=co;}
@@ -113,6 +115,7 @@ public class Vehiculo{
     public double getValor(){return this.valorComercial;}
     public String getColor(){return this.color;}
     public int getCantidad(){return this.vehiculos.size();}
+    public int getId(){return this.id;}
     public int getCantidadSensores(){return this.sensores.size();}
     public ArrayList getSensores(){return this.sensores;}
     public int cantidadVehiculos(){return this.vehiculos.size();}
