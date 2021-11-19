@@ -16,11 +16,11 @@
 ## tarea de la fundamentos de programacion en eafit(ST0242/2021-2)
 ### caracteristicas
 
-es bonito y tiene mas trabajo de solicitado , ademas tiene easter egg's  de otros trabajos ademas tiene documentacion pequeña y un pequeño FAQś
+es bonito y tiene mas trabajo de solicitado , ademas tiene easter egg's  de otros trabajos ademas tiene documentacion pequeña y un pequeño FAQś(vacio)
 
 ### Screenshots
 
-![](https://github.com/entifais/jichos-en-carritos2/blob/main/docs/screnshots/1.png?raw=true)
+![](https://github.com/entifais/jichos-en-carritos2/blob/main/docs/screnshots/4.png?raw=true)
 ![](https://github.com/entifais/jichos-en-carritos2/blob/main/docs/screnshots/2.png?raw=true)
 ![](https://github.com/entifais/jichos-en-carritos2/blob/main/docs/screnshots/3.png?raw=true)
 
