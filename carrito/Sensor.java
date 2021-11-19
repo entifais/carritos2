@@ -67,8 +67,6 @@ public class Sensor{
         //esperando respuesta si se retornan los objetos o los valores de temperatura
         return sensores;
     }
-
-    public int cantidadSensores(){return this.sensores.size();}
     public void setTipo(String t){this.tipo=tipo;}
     public void setValor(double v){this.valor=v;}
     public String getTipo(){return this.tipo;}

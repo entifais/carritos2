@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 public class Vehiculo{
     public static ArrayList<Vehiculo> vehiculos=new ArrayList<Vehiculo>();
-    public static int idActual=1;
+    public static int idActual=0;
     private int id=0;
     private int modelo;
     private String marca;
@@ -9,9 +9,9 @@ public class Vehiculo{
     private String color;
     private ArrayList<Sensor> sensores=new ArrayList<Sensor>();
     public Vehiculo(){
-        this.setId(Vehiculo.idActual);
+        /*this.setId(Vehiculo.idActual);
         Vehiculo.vehiculos.add(this);
-        Vehiculo.idActual=idActual+1;
+        Vehiculo.idActual=idActual+1;*/
     }
     public Vehiculo(int mo,String ma,double va){
         Vehiculo vehiculo=new Vehiculo(mo,ma,va,"verde");
@@ -22,9 +22,11 @@ public class Vehiculo{
         this.valorComercial=va;
         this.color=co;
         Vehiculo.vehiculos.add(this);
+        this.setId(Vehiculo.idActual);
+        Vehiculo.idActual=idActual+1;
     }
     public String toString(){
-        String infoVehiculo="id:"+this.id+"\nmodelo:"+this.modelo+"\nmarca:"+this.marca+"\nvalor Comercial:"+String.valueOf(this.valorComercial)+"\ncolor:"+this.color;
+        String infoVehiculo="id:"+this.id+"\nmodelo:"+this.modelo+"\nmarca:"+this.marca+"\nvalor Comercial:"+String.valueOf(this.valorComercial)+"\ncolor:"+this.color+"\n cantidad sensores"+this.sensores.size();
         return infoVehiculo;
     }
     public static String toStringVeiculos(){
@@ -80,13 +82,29 @@ public class Vehiculo{
             }
         }
         return infoVehiculos;
+    } 
+    public String informacionSensoresVehiculo(){
+        String infoSesores="";
+        for(int i=0;i<this.sensores.size();i++){
+                infoSesores+=this.sensores.get(i).toString();
+        }
+        return infoSesores;
+    }
+    public String informacionTodosSensores(){
+        String infoSesores="";
+        for(int i=0;i<Vehiculo.vehiculos.size();i++){
+                for(int ii=0;ii<Vehiculo.vehiculos.get(i).sensores.size();ii++){
+                    infoSesores+=this.vehiculos.get(i).sensores.get(ii).toString();
+                }
+        }
+        return infoSesores;
     }
     public String informacionSensoresTemperatura(){
         String infoSesores="";
-        for(int i=0;i<this.vehiculos.size();i++){
-                for(int ii=0;ii<this.vehiculos.get(i).sensores.size();ii++){
-                    if("temperatura".equals(this.vehiculos.get(i).sensores.get(ii).getTipo().toLowerCase()))
-                    infoSesores+=this.vehiculos.get(i).sensores.get(ii).toString();
+        for(int i=0;i<Vehiculo.vehiculos.size();i++){
+                for(int ii=0;ii<Vehiculo.vehiculos.get(i).sensores.size();ii++){
+                    if("temperatura".equals(Vehiculo.vehiculos.get(i).sensores.get(ii).getTipo().toLowerCase()))
+                        infoSesores+=Vehiculo.vehiculos.get(i).sensores.get(ii).toString();
                 }
         }
         return infoSesores;
@@ -102,6 +120,30 @@ public class Vehiculo{
             }
         }
         return infoSesores;
+    }
+    public ArrayList<Sensor> SensoresTemperaturaOrdetnados666(ArrayList<Sensor> sensores){
+        int cantidadSensoresTemperatura=0;
+        for(int i=0;i<sensores.size();i++){
+            if("temperatura".equals(sensores.get(i).getTipo())){
+                cantidadSensoresTemperatura=cantidadSensoresTemperatura+1;
+            }
+            if(cantidadSensoresTemperatura>1){
+                break;
+            }
+        }//se hace este for y los if para evitar ordenar un solo objeto , esto produciria un error
+        for(int i=0;i<sensores.size()-1;i++){
+            if("temperatura".equals(sensores.get(i).getTipo())){
+                for(int ii=0;ii<sensores.size()-i-1;ii++){
+                    if(sensores.get(ii).getValor()>sensores.get(ii+1).getValor()){
+                        Sensor tmp=sensores.get(ii);
+                        sensores.set(ii,sensores.get(ii+1));
+                        sensores.set(ii+1,tmp);
+                    }
+                }
+            }
+        }
+        //esperando respuesta si se retornan los objetos o los valores de temperatura
+        return sensores;
     }
     public void anadirSensor(Sensor s){this.sensores.add(s);}
     public void setModelo(int mo){this.modelo=mo;}
