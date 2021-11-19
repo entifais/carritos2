@@ -16,16 +16,16 @@ public class Bichos{
             return false;
         }
     }    
-    public static void menosSalud(Bichos[] bichos){
+    public static Bichos menosSalud(Bichos[] bichos){
         int menosVidaValor=bichos[0].getSalud();
         Bichos menosVidaBicho=bichos[0];
         for(int i=0;i<Bichos.tamanoCuadrado;i++){
-             if(menosVidaValor>bichos[i].getSalud()){
+             if(menosVidaValor>bichos[i].getSalud() && bichos[i].estaVivo()){
                 menosVidaValor=bichos[i].getSalud();
                 menosVidaBicho=bichos[i];   
             }
         }
-        menosVidaBicho.duplicarSalud();
+        return menosVidaBicho;
     }
     public static boolean verificarBichosVivos(Bichos[] bichos){
         boolean vivos=true;

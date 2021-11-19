@@ -5,7 +5,6 @@ public class juego{
     public static void main(String[] args){
         String banner="   _ _            _                            \n  (_|_)_ __   ___| |__   ___  ___    ___ _ __  \n  | | | '_ \\ / __| '_ \\ / _ \\/ __|  / _ \\ '_ \\ \n  | | | | | | (__| | | | (_) \\__ \\ |  __/ | | |\n _/ |_|_| |_|\\___|_| |_|\\___/|___/  \\___|_| |_|\n|__/                                           \n _                     _ _            \n| |__   __ _ _ __ _ __(_) |_ ___  ___ \n| '_ \\ / _` | '__| '__| | __/ _ \\/ __|\n| |_) | (_| | |  | |  | | || (_) \\__ \n|_.__/ \\__,_|_|  |_|  |_|\\__\\___/|___/\n                                      \n";
         String linea="---------------------------------------";
-        Bichos bichos=generarTablero();
         Scanner input=new Scanner(System.in);
         while(true){
             System.out.println(banner);
@@ -13,6 +12,7 @@ public class juego{
             System.out.println("[1]: iniciar juego");
             System.out.println("[2]: salir juego");
             int opcion=input.nextInt();
+            Bichos bichos=generarTablero();
             if(opcion==1){
                 while(Bichos.verificarBichosVivos(bichos.como1d())){
                     System.out.println(linea);
@@ -50,10 +50,14 @@ public class juego{
                         }
                         int i=Integer.parseInt( String.valueOf(bin.charAt(0)));
                         int ii=Integer.parseInt( String.valueOf(bin.charAt(1)));
-                        bichos.bichitos[i][ii].muerteTotal();
-                        System.out.println("el bicho"+bichos.bichitos[i][ii].getRepresentacion()+" en "+bin+" murio");                   
+                        if(bichos.bichitos[i][ii].estaVivo()){
+                            bichos.bichitos[i][ii].muerteTotal();
+                            System.out.println("el bicho "+bichos.bichitos[i][ii].getRepresentacion()+" en "+bin+" murio");                   
+                        }else{
+                            System.out.println("la bomba atomica fallo  en "+bin+",debido a que no hay bichos");                   
+                        }
                     }else if(opcion==3){
-                        bichos.menosSalud(bichos.como1d());
+                        bichos.menosSalud(bichos.como1d()).duplicarSalud();
                     }else if(opcion==4){
                     try{
                         File file=new File("inspiracion.txt");
@@ -112,9 +116,7 @@ public class juego{
 
             Bichos bicho;
             int desicion = (int)(((Math.random())*10)%2);
-            System.out.println("numero1 ="+numero1 );
             if(iterador<numero1){
-                System.out.println("desicion ="+desicion );
                 if(desicion ==1){
                     bicho=new bichoAlien(20);  
                 }else{
@@ -124,16 +126,13 @@ public class juego{
                 bicho=new Bichos(0,"  ");//un bicho no muerto y tampoco invisible , solo es una forma de llenar espacio
             }
             bichoP.bichitos[i][ii]=bicho;
-            System.out.println("i="+i+"|ii="+ii);
-            System.out.println(bicho.bichitos[i][ii].getRepresentacion());
-            System.out.println(bicho.getRepresentacion());
+
             /*i++;
             if((iterador%Math.sqrt(Bichos.tamanoCuadrado))==0) {
                 ii++;
                 i=0;
             }*/
         }
-        mostsrarTablero(bichoP.como1d());
         return bichoP;
     }
 }
